@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALBAS Jonathan - PERSONAL LAB</title>
+    
+    <link rel="stylesheet" href="ressources/kitchen.css">
+
+    <link rel="icon" type="image/png" href="/ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="/ressources/favicon/site.webmanifest" />
+    </head>
+<body>
+
+    <div class="kitchen-deco deco-top-left">👨‍🍳</div>
+    <div class="kitchen-deco deco-top-right">🥗</div>
+    <div class="kitchen-deco deco-bottom-left">🔥</div>
+    <div class="kitchen-deco deco-bottom-right">🔪</div>
+    <div class="kitchen-deco deco-center-right">🧂</div>
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - PERSONAL LAB</div>
+        </div>
+
+    
+        <div style="display: flex; align-items: center;">
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="projets.html">Projects</a></li>
+                    <li><a href="labo.html">PERSONAL LAB</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="lang-switch">
+                <a href="../FR/labo.html" class="lang-btn" title="French">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <a href="labo.html" class="lang-btn active" title="English">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="lights-rack">
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+    </div>
+
+    <main>
+        
+        <div class="header-section">
+            <h1>Personal Lab</h1>
+            <p class="subtitle">My personal projects</p>
+        </div>
+
+        <section class="projet-section">
+
+            <div class="stainless-counter">
+                <h2>IAM & SSO Integration: Auth0 / Infomaniak</h2>
+
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            This technical project, carried out within my personal infrastructure, aimed to solve a complex interoperability issue between two major ecosystems: <strong>Auth0</strong> (identity manager) and the <strong>Infomaniak kSuite</strong> collaborative suite. The objective was to implement a seamless and secure Single Sign-On (SSO) for the Skynium environment.
+                        </p>
+                        <p>
+                            Faced with the limitations of the SAML protocol in this specific context, I pivoted to an architecture based on <strong>OAuth2</strong>. This challenge led me to manipulate REST APIs, debug authentication flows, and develop custom scripts (in JavaScript) to ensure correct user mapping between the two providers. This project demonstrates my ability to link heterogeneous software components to create a unified user experience.
+                        </p>
+                        <p>
+                            <strong>Disclaimer</strong>
+                        </p>
+                        <p>
+                            <em>Legal Disclaimer:</em> The brands mentioned (such as Infomaniak&trade;, Auth0&trade;, etc.) belong to their respective owners. 
+                            The use of these names is purely descriptive and educational within the context of a student portfolio (Fair Use), 
+                            to illustrate the technical skills acquired on these technologies. 
+                            This site has no commercial affiliation, partnership, or official link with the mentioned companies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div>
+
+            <div class="stainless-counter">
+                <h2>Home Automation: Automating my room</h2>
+
+                <div class="projet-layout">
+                    <div class="carousel-container">
+                        <div class="carousel-slides">
+                            <div class="slide">
+                                <div class="slide-desc">Centralized control dashboard.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projet-texte">
+                        <p>
+                            Beyond a simple gadget, I transformed my personal space into a truly reactive environment thanks to <strong>HomeAssistant</strong>. This perpetual project is my playground for experimenting with the Internet of Things (IoT). I integrate various protocols to centralize the control of lighting, doorbell, and multimedia, all without relying on the cloud.
+                        </p>
+                        <img src="ressources/images/hascreen.png" alt="HomeAssistant Interface" width="75%" height="auto">
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div>
+
+            <div class="stainless-counter" style="border-color: #6610f2;">
+                <h2>The Schedule: SSH (Skynium Student Hub)</h2>
+
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            Faced with the slowness of the official platform (ADE), I cooked up my own solution: the <strong>SSH (Skynium Student Hub)</strong>. It is an ultra-fast web interface designed to serve the schedule to IUT R&T Luminy students without indigestible loading times.
+                        </p>
+                        <p>
+                            The secret recipe? A backend script ("The Mise en Place") runs automatically every night at <strong>04:00 AM</strong> to retrieve and cache the data.
+                            The system is intelligent: upon logging in, the student only sees the "Menu" that concerns them. The display dynamically filters courses according to their <strong>TP</strong> (practical work) or <strong>TD</strong> (tutorial) group, offering a personalized and streamlined experience.
+                        </p>
+                        <p style="color: #6610f2; font-weight: bold; font-size: 0.9em;">
+                            <span style="font-size: 1.2em;">🚀</span> Performance: 5x faster than the official tool.
+                        </p>
+                    </div>
+
+                    <div class="projet-texte">
+                        <img src="ressources/images/ade/ssh.png" alt="SSH Interface" width="100%" height="auto">
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div>
+
+            <div class="stainless-counter" style="border-color: #ffc107;"> <h2>Simmering: Cloud Infrastructure & Raspberry Pi</h2>
+
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            My next hardware experiment ("The Main Course") will consist of deploying an autonomous Linux server on a <strong>Raspberry Pi</strong>. The goal is to free myself from proprietary solutions to create my own personal cloud.
+                        </p>
+                        <p>
+                            I will focus on remote access security by adopting a <strong>Zero Trust</strong> architecture. I plan to compare and implement solutions like <strong>Cloudflare Tunnel</strong> or <strong>Tailscale</strong>. This will allow me to access my containers and files from anywhere, without unnecessarily exposing ports on my internet box.
+                        </p>
+                        <p style="color: #856404; font-size: 0.9em; font-style: italic;">
+                            <span style="font-size: 1.2em;">⏲️</span> Status: Equipment order in progress / Design phase.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div>
+
+            <div class="stainless-counter" style="border-color: #ffc107;">
+                <h2>R&D: Virtualization & Network Services (R&T Lab)</h2>
+
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            Inspired by my courses at <strong>IUT R&T</strong>, I wish to transform my Raspberry Pi into a real pocket hypervisor. The goal is to segment my infrastructure via virtual machines (VM) or containers to recreate a miniature enterprise network.
+                        </p>
+                        <p>
+                            I plan to deploy and manually configure fundamental Internet services: a <strong>DHCP</strong> server for address distribution and a local <strong>DNS</strong> server (perhaps coupled with a Pi-hole) for name resolution. For me, this is the best way to "get my hands dirty" and master the protocols that govern our digital exchanges, while having fun building a resilient architecture.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Skynium&copy;</p>
+    </footer>
+
+</body>
+</html>

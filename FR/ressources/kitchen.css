@@ -1,0 +1,544 @@
+/* ===== VARIABLES CSS THÈME "CUISINE PROFESSIONNELLE" ===== */
+
+:root {
+    /* Palette "Inox" : tons gris métalliques */
+    --stainless-steel: #dee2e6; /* Gris inox clair (surfaces) */
+    --stainless-dark: #adb5bd;  /* Gris inox foncé (bordures/ombres) */
+    --pro-white: #ffffff;       /* Blanc clinique (fond principal) */
+    --text-dark: #212529;       /* Noir charbon (texte lisible) */
+    --accent-chef: #dc3545;     /* Rouge "Toque de chef" (accent fort) */
+    
+    /* Couleur pour l'éclairage chaud des ampoules */
+    --warm-white-light: #fff3cd; /* Jaune chaud (lumière halogène) */
+    
+    /* Rappel des couleurs de l'entreprise Skynium */
+    --comp-violet: #1D0469;
+    --comp-pink: #FA5DFF;
+    --comp-orange: #FF8A3F;
+}
+
+/* ===== RESET CSS UNIVERSEL ===== */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* ===== CONFIGURATION POUR LE FONDU D'ENTRÉE ===== */
+/* html : fond blanc pour éviter un flash de couleur lors du chargement */
+html { 
+    background-color: var(--pro-white); 
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--pro-white);
+    
+    /* ===== FOND AVEC MOTIF CARRELAGE ===== */
+    /* Double linear-gradient : crée une grille en superposant 2 lignes perpendiculaires
+       rgba(0,0,0,0.05) : noir à 5% d'opacité (lignes très subtiles)
+       1px : épaisseur des lignes de la grille */
+    background-image: 
+        linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),   /* Lignes verticales */
+        linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);  /* Lignes horizontales */
+    
+    /* background-size : définit la taille de chaque "carreau"
+       50px de large, 25px de haut = rectangles horizontaux */
+    background-size: 50px 25px;
+    
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+    /* ===== ANIMATION DE FONDU À L'ENTRÉE ===== */
+    /* opacity: 0 : invisible au chargement */
+    opacity: 0;
+    
+    /* animation : nom durée timing-function direction
+       forwards : garde l'état final après l'animation (reste à opacity: 1) */
+    animation: fadeInCook 1s ease-out forwards;
+}
+
+/* Animation simple de fondu */
+@keyframes fadeInCook {
+    from { opacity: 0; } 
+    to { opacity: 1; }
+}
+
+/* ===== DÉCORATIONS FLOTTANTES (ÉMOJIS) ===== */
+
+.kitchen-deco {
+    position: fixed; /* Reste à la même position lors du scroll */
+    font-size: 3rem;
+    z-index: -1; /* Derrière tout le contenu */
+    opacity: 0.6; /* Semi-transparent pour rester discret */
+    
+    /* filter: drop-shadow : ajoute une ombre portée
+       Différent de box-shadow : suit la forme de l'emoji (pas juste un rectangle) */
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+    
+    /* Animation de flottement avec alternate : fait des allers-retours */
+    animation: floatCooking 6s ease-in-out infinite alternate;
+}
+
+/* Animation de flottement : monte/descend + légère rotation */
+@keyframes floatCooking {
+    0% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    100% { 
+        transform: translateY(-20px) rotate(10deg); /* Monte de 20px et tourne de 10° */
+    }
+}
+
+/* ===== POSITIONS FIXES DES ÉMOJIS ===== */
+/* Chaque emoji a une position et un délai d'animation différent */
+
+.deco-top-left { 
+    top: 120px; 
+    left: 5%; 
+    animation-delay: 0s; /* Démarre immédiatement */
+}
+
+.deco-top-right { 
+    top: 150px; 
+    right: 5%; 
+    animation-delay: 1s; /* Démarre après 1 seconde */
+    font-size: 4rem; /* Plus grand que les autres */
+}
+
+.deco-bottom-left { 
+    bottom: 10%; 
+    left: 10%; 
+    animation-delay: 2s; 
+}
+
+.deco-bottom-right { 
+    bottom: 15%; 
+    right: 8%; 
+    animation-delay: 3s; 
+    font-size: 5rem; /* Le plus grand */
+}
+
+.deco-center-right { 
+    top: 50%; /* Centré verticalement */
+    right: 15%; 
+    animation-delay: 1.5s; 
+}
+
+
+/* ===== EN-TÊTE (STYLE INOX BROSSÉ) ===== */
+
+header {
+    /* linear-gradient vertical : crée un effet de relief métallique
+       Clair en haut (#f8f9fa), plus foncé en bas (#e9ecef) */
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    
+    /* Bordure épaisse en bas pour séparer du contenu */
+    border-bottom: 4px solid var(--stainless-dark);
+    
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Ombre prononcée pour effet 3D */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    
+    position: sticky; /* Se colle en haut lors du scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.identite .nom {
+    font-weight: 800; /* Extra-gras */
+    color: var(--text-dark);
+    letter-spacing: 1px; /* Espacement des lettres */
+    text-transform: uppercase;
+    
+    /* text-shadow double : crée un effet gravé/embossé
+       1px 1px 0px #fff : lumière en haut à droite (blanc)
+       -1px -1px 0px rgba(0,0,0,0.2) : ombre en bas à gauche (noir transparent) */
+    text-shadow: 1px 1px 0px #fff, -1px -1px 0px rgba(0,0,0,0.2);
+}
+
+/* ===== MENU FAÇON BOUTONS DE FOUR ===== */
+
+nav ul { 
+    display: flex; 
+    gap: 15px; 
+    list-style: none; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    padding: 10px 20px;
+    background: #e9ecef; /* Gris clair */
+    border: 2px solid var(--stainless-dark);
+    border-radius: 4px; /* Coins légèrement arrondis */
+    
+    /* ===== EFFET BOUTON 3D AVEC INSET BOX-SHADOW ===== */
+    /* inset : ombre à l'INTÉRIEUR de l'élément (pas à l'extérieur)
+       Première ombre : lumière blanche en haut (effet bombé)
+       Deuxième ombre : ombre noire en bas (creux) */
+    box-shadow: 
+        inset 0 2px 5px rgba(255,255,255,0.8),  /* Lumière en haut */
+        inset 0 -2px 5px rgba(0,0,0,0.1);       /* Ombre en bas */
+    
+    transition: all 0.2s ease;
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+    background: var(--accent-chef); /* Rouge au survol/actif */
+    color: white;
+    border-color: #bd2130; /* Bordure rouge foncé */
+    
+    /* box-shadow inversé : effet "bouton enfoncé" */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ===== RAMPE DE LUMIÈRES (CŒUR DU DESIGN) ===== */
+
+.lights-rack {
+    display: flex;
+    justify-content: space-around; /* Répartit les ampoules uniformément */
+    background: var(--stainless-dark); /* Rail métallique sombre */
+    padding: 10px 5%;
+    border-bottom: 2px solid #6c757d;
+    
+    /* inset box-shadow : ombre à l'intérieur = effet "rail creux" */
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+    
+    position: sticky;
+    top: 78px; /* Juste sous le header (hauteur du header) */
+    z-index: 999; /* Sous le header (1000) mais au-dessus du contenu */
+}
+
+.bulb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; /* Cercle parfait */
+    background: #ced4da; /* Gris (ampoule éteinte) */
+    border: 2px solid #495057; /* Bordure foncée (culot) */
+    position: relative;
+}
+
+/* ===== EFFET 1 : ÉCLAT BLANC CHAUD (AMPOULES PAIRES) ===== */
+
+/* :nth-child(even) : cible les enfants pairs (2, 4, 6, 8, 10, 12...) */
+.bulb:nth-child(even) {
+    /* Animation qui fait passer l'ampoule de éteinte → éclat → éteinte */
+    animation: warmBurst 3s infinite ease-out;
+}
+
+/* Décalage du timing pour chaque ampoule paire
+   Crée un effet de "vague" au lieu d'un clignotement synchronisé */
+.bulb:nth-child(2) { animation-delay: 0s; }
+.bulb:nth-child(4) { animation-delay: 0.5s; }
+.bulb:nth-child(6) { animation-delay: 1s; }
+.bulb:nth-child(8) { animation-delay: 1.5s; }
+.bulb:nth-child(10) { animation-delay: 2s; }
+.bulb:nth-child(12) { animation-delay: 2.5s; }
+
+/* Animation d'éclat lumineux progressif */
+@keyframes warmBurst {
+    0% {
+        background: var(--warm-white-light); /* Jaune chaud */
+        box-shadow: 0 0 5px var(--warm-white-light), 0 0 10px var(--warm-white-light);
+    }
+    20% {
+        /* PIC D'INTENSITÉ : triple box-shadow de plus en plus diffuse */
+        background: #fff; /* Blanc pur */
+        box-shadow: 
+            0 0 20px #fff,                          /* Halo proche */
+            0 0 40px var(--warm-white-light),       /* Halo moyen */
+            0 0 60px rgba(255, 243, 205, 0.5);     /* Halo lointain transparent */
+    }
+    100% {
+        /* Retour à l'état éteint */
+        background: #ced4da;
+        box-shadow: none;
+    }
+}
+
+/* ===== EFFET 2 : DÉGRADÉ ANIMÉ ENTREPRISE (AMPOULES IMPAIRES) ===== */
+
+/* :nth-child(odd) : cible les enfants impairs (1, 3, 5, 7, 9, 11...) */
+.bulb:nth-child(odd) {
+    /* Dégradé avec les 3 couleurs de l'entreprise */
+    background: linear-gradient(45deg, var(--comp-violet), var(--comp-pink), var(--comp-orange));
+    
+    /* background-size: 300% 300% : fond 3x plus grand que le conteneur
+       Nécessaire pour animer la position et créer un effet de "défilement" des couleurs */
+    background-size: 300% 300%;
+    
+    /* Lueur rosée fixe (pas animée) */
+    box-shadow: 0 0 15px rgba(250, 93, 255, 0.6);
+    
+    /* Animation qui déplace la position du dégradé */
+    animation: companyColorsMove 5s ease infinite alternate;
+}
+
+/* Animation de déplacement du dégradé */
+@keyframes companyColorsMove {
+    0% { 
+        background-position: 0% 50%; /* Début du dégradé visible */
+    }
+    100% { 
+        background-position: 100% 50%; /* Fin du dégradé visible */
+    }
+    /* alternate fait l'aller-retour automatiquement */
+}
+
+
+/* ===== CONTENU PRINCIPAL ===== */
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 30px;
+    background: var(--pro-white);
+    border: 1px solid var(--stainless-steel);
+    
+    /* box-shadow : effet "posé sur le comptoir" */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+    padding-bottom: 50px;
+}
+
+.header-section {
+    text-align: center;
+    margin: 40px 0;
+    padding-bottom: 20px;
+    
+    /* border-bottom double : effet de ligne décorative élégante */
+    border-bottom: 3px double var(--stainless-dark);
+}
+
+h1 {
+    color: var(--text-dark);
+    font-size: 3rem;
+    font-weight: 900; /* Ultra-gras */
+    text-transform: uppercase;
+}
+
+.subtitle {
+    color: var(--accent-chef);
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* ===== LE "PLAN DE TRAVAIL INOX" ===== */
+
+.stainless-counter {
+    /* Dégradé diagonal pour effet métallique brossé */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    
+    border: 3px solid var(--stainless-dark);
+    border-radius: 8px;
+    padding: 30px;
+    
+    /* Ombre DURE (pas de flou) : 5px décalage horizontal et vertical
+       Crée un effet "bloc posé sur le comptoir" très marqué */
+    box-shadow: 5px 5px 0px #adb5bd;
+    
+    position: relative; /* Nécessaire pour les pseudo-éléments */
+}
+
+/* ===== EFFET "RIVETS" AUX COINS (PSEUDO-ÉLÉMENTS) ===== */
+
+/* ::before et ::after : créent 2 éléments virtuels (rivets en haut) */
+.stainless-counter::before, 
+.stainless-counter::after {
+    content: ''; /* Obligatoire pour afficher le pseudo-élément */
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--stainless-dark);
+    border-radius: 50%; /* Cercle */
+    
+    /* Double inset box-shadow : effet métallique 3D sur le rivet
+       Lumière blanche en haut-gauche, ombre noire en bas-droite */
+    box-shadow: 
+        inset 1px 1px 2px white,      /* Reflet */
+        inset -1px -1px 2px black;    /* Creux */
+}
+
+/* Positionnement des 2 rivets */
+.stainless-counter::before { 
+    top: 10px; 
+    left: 10px; /* Rivet haut-gauche */
+}
+
+.stainless-counter::after { 
+    top: 10px; 
+    right: 10px; /* Rivet haut-droit */
+}
+
+h2 {
+    color: var(--text-dark);
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    
+    /* Barre rouge à gauche du titre */
+    border-left: 10px solid var(--accent-chef);
+    padding-left: 15px;
+    
+    /* Fond blanc semi-transparent */
+    background: rgba(255,255,255,0.5);
+}
+
+/* ===== LAYOUT DU CONTENU ===== */
+
+.projet-layout {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--pro-white); /* Fond blanc sur le comptoir gris */
+    padding: 20px;
+    border: 1px solid var(--stainless-steel);
+}
+
+.projet-texte p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+.projet-texte strong {
+    color: var(--accent-chef); /* Texte en gras en rouge */
+    font-weight: 700;
+}
+
+/* ===== CARROUSEL (STYLE "PORTE DE FOUR") ===== */
+
+.carousel-container {
+    flex: 1;
+    max-width: 450px;
+    border: 5px solid #495057; /* Cadre foncé épais = contour du four */
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    
+    /* inset box-shadow : ombre à l'intérieur = effet "vitre de four" */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* ===== POIGNÉE DE FOUR EN CSS (PSEUDO-ÉLÉMENT) ===== */
+
+/* ::after : crée une barre verticale sur le côté droit */
+.carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Centré verticalement */
+    right: 10px;
+    transform: translateY(-50%); /* Ajustement précis du centrage */
+    width: 10px;
+    height: 60px;
+    
+    /* Dégradé horizontal pour effet métallique */
+    background: linear-gradient(to right, #adb5bd, #dee2e6);
+    
+    border-radius: 5px;
+    border: 1px solid #495057;
+}
+
+.slide img {
+    /* filter: applique des effets visuels à l'image
+       contrast(1.1) : augmente légèrement le contraste (+10%)
+       sepia(0.1) : ajoute une teinte sépia (jaune chaud) à 10%
+       = effet "chaleur du four" */
+    filter: contrast(1.1) sepia(0.1);
+}
+
+.slide-desc {
+    background: #343a40; /* Fond noir charbon */
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+    border-top: 3px solid var(--accent-chef); /* Barre rouge en haut */
+}
+
+/* ===== PIED DE PAGE ===== */
+
+footer {
+    margin-top: 50px;
+    padding: 30px;
+    text-align: center;
+    background: var(--stainless-dark);
+    color: var(--text-dark);
+    font-weight: 700;
+    border-top: 4px solid var(--accent-chef);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+    .projet-layout { 
+        flex-direction: column; /* Passe en vertical sur mobile */
+    }
+    .carousel-container { 
+        width: 100%; 
+    }
+    .lights-rack { 
+        /* overflow-x: auto : permet de scroller horizontalement sur mobile
+           Utile si les 12 ampoules ne rentrent pas sur petit écran */
+        overflow-x: auto;
+    }
+}
+
+/* ===== SÉLECTEUR DE LANGUE ===== */
+/* (Identique au style.css principal - déjà commenté précédemment) */
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.lang-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.7;
+}
+
+.lang-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.lang-btn:hover {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn.active {
+    opacity: 1;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    .lang-switch {
+        border-left: none;
+        margin-left: 10px;
+        padding-left: 0;
+        gap: 10px;
+    }
+}

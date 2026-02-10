@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALBAS Jonathan - PASSIONS</title>
+    <link rel="stylesheet" href="ressources/style.css">
+
+    <!-- Favicons (déjà expliqués précédemment) -->
+    <link rel="icon" type="image/png" href="ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="ressources/favicon/site.webmanifest" />
+    
+    <style>
+        /* ===== CONTENEUR DES CARTES PORTAIL ===== */
+        
+        .portal-container {
+            display: flex;
+            
+            /* flex-wrap: wrap : permet aux éléments de passer à la ligne suivante si l'espace est insuffisant
+               Sans wrap, les éléments resteraient sur une seule ligne et pourraient déborder
+               Essentiel pour le responsive : les cartes se réorganisent automatiquement */
+            flex-wrap: wrap;
+            
+            /* justify-content: center : centre les éléments horizontalement dans le conteneur
+               Crée une disposition équilibrée même avec un nombre impair de cartes */
+            justify-content: center;
+            
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        /* ===== CARTE PORTAIL INDIVIDUELLE ===== */
+        
+        .portal-card {
+            /* Dimensions fixes pour uniformité */
+            width: 300px;
+            height: 400px;
+            
+            border-radius: 20px;
+            
+            /* position: relative : point de référence pour les enfants en position absolute */
+            position: relative;
+            
+            /* overflow: hidden : cache tout ce qui dépasse (important pour l'effet zoom de l'image) */
+            overflow: hidden;
+            
+            /* cursor: pointer : change le curseur en main au survol (indique que c'est cliquable) */
+            cursor: pointer;
+            
+            /* transition : anime plusieurs propriétés simultanément
+               transform et box-shadow changeront en 0.4s avec courbe ease */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            
+            /* text-decoration: none : enlève le soulignement du lien */
+            text-decoration: none;
+        }
+
+        .portal-card:hover {
+            /* transform multiple : combine plusieurs transformations
+               translateY(-10px) : déplace vers le haut de 10px
+               scale(1.02) : agrandit l'élément de 2% (multiplie par 1.02)
+               Les transformations sont appliquées dans l'ordre spécifié */
+            transform: translateY(-10px) scale(1.02);
+            
+            /* box-shadow plus prononcée : ombre plus grande et plus opaque */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* ===== IMAGE DE FOND POUR CHAQUE CARTE ===== */
+        
+        .card-bg {
+            /* position: absolute avec top/left/width/height à 100% :
+               remplit complètement le conteneur parent (portal-card) */
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            
+            /* background-size: cover : l'image remplit tout l'espace en gardant ses proportions
+               L'image peut être rognée pour éviter les bandes noires */
+            background-size: cover;
+            
+            /* background-position: center : centre l'image dans son conteneur
+               Si l'image est rognée, la partie centrale reste visible */
+            background-position: center;
+            
+            /* transition plus lente (0.5s) pour un effet de zoom fluide */
+            transition: transform 0.5s ease;
+        }
+        
+        /* Effet zoom sur l'image au survol de la carte
+           Sélecteur : quand on survole .portal-card, on cible son enfant .card-bg */
+        .portal-card:hover .card-bg {
+            /* scale(1.1) : agrandit l'image de 10% */
+            transform: scale(1.1);
+        }
+
+        /* ===== OVERLAY DÉGRADÉ POUR LISIBILITÉ DU TEXTE ===== */
+        
+        .card-overlay {
+            position: absolute;
+            
+            /* Positionnement : bas de la carte, pleine largeur et hauteur */
+            bottom: 0; 
+            left: 0; 
+            width: 100%;
+            height: 100%;
+            
+            /* linear-gradient : dégradé linéaire de couleurs
+               to top : direction du dégradé (de bas en haut)
+               rgba(0,0,0,0.9) : noir avec 90% d'opacité (en bas)
+               transparent : complètement transparent (en haut)
+               Résultat : fond sombre en bas qui s'estompe progressivement vers le haut */
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            
+            /* Flexbox pour positionner le texte */
+            display: flex;
+            flex-direction: column;
+            
+            /* justify-content: flex-end : pousse le contenu vers le bas
+               Le texte sera aligné en bas de la carte */
+            justify-content: flex-end;
+            
+            padding: 30px;
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 800; /* Extra-gras */
+            margin-bottom: 10px;
+            
+            /* text-transform: uppercase : tout en majuscules (déjà expliqué) */
+            text-transform: uppercase;
+        }
+
+        .card-desc {
+            color: #ddd; /* Gris très clair */
+            font-size: 0.9rem;
+            
+            /* ===== ANIMATION D'APPARITION ===== */
+            
+            /* opacity: 0 : complètement invisible par défaut */
+            opacity: 0;
+            
+            /* translateY(20px) : décalé de 20px vers le bas
+               Prépare l'animation de "glissement vers le haut" */
+            transform: translateY(20px);
+            
+            /* transition: all : anime TOUTES les propriétés qui changent
+               Ici : opacity et transform changeront en 0.3s */
+            transition: all 0.3s ease;
+        }
+
+        /* Animation au survol : la description apparaît en glissant vers le haut */
+        .portal-card:hover .card-desc {
+            opacity: 1; /* Devient visible */
+            transform: translateY(0); /* Revient à sa position normale */
+        }
+
+        /* ===== BORDURES COLORÉES SPÉCIFIQUES ===== */
+        /* Classes utilitaires pour personnaliser chaque carte */
+        
+        .border-eurovision { 
+            border: 4px solid #FF8A3F; /* Orange vif */
+        }
+        
+        .border-music { 
+            border: 4px solid #FA5DFF; /* Rose/magenta */
+        }
+        
+        .border-tech { 
+            border: 4px solid #1D0469; /* Violet foncé */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - PASSIONS</div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="cv.html">Cv</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="labo.html">Laboratoire Personnel</a></li>
+                    <li><a href="hobbies.html">PASSIONS</a></li>
+                </ul>
+            </nav>
+
+            <div class="lang-switch">
+                <a href="hobbies.html" class="lang-btn active" title="Français">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <a href="../EN/hobbies.html" class="lang-btn" title="English">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Style inline pour centrer le contenu de la section -->
+        <section style="text-align: center;">
+            <h1>Mes Univers</h1>
+            <h2>Choisissez une dimension à explorer</h2>
+            
+            <!-- ===== CONTENEUR DES 3 CARTES PORTAIL ===== -->
+            <div class="portal-container">
+
+                <!-- ===== CARTE 1 : EUROVISION / SCÈNE ===== -->
+                <!-- Lien vers une page HTML dans le dossier ressources/
+                     Combine plusieurs classes : portal-card (style de base) + border-eurovision (bordure orange) -->
+                <a href="ressources/eurovision.html" class="portal-card border-eurovision">
+                    
+                    <!-- Image de fond définie en inline style
+                         style="background-image: url(...)" : définit l'image directement dans le HTML
+                         Permet d'utiliser une image différente pour chaque carte sans créer une classe CSS par carte -->
+                    <div class="card-bg" style="background-image: url('ressources/images/eurovision/image4.jpg');"></div>
+                    
+                    <!-- Overlay avec dégradé et texte -->
+                    <div class="card-overlay">
+                        <div class="card-title">Scénographie & Eurovision</div>
+                        <!-- Description cachée par défaut (opacity: 0), visible au survol -->
+                        <div class="card-desc">Plongée dans la lumière, la mise en scène et la grandeur technique des shows TV.</div>
+                    </div>
+                </a>
+
+                <!-- ===== CARTE 2 : CINÉMA / RÉALISATION ===== -->
+                <!-- Bordure violette (border-tech) -->
+                <a href="ressources/cinema.html" class="portal-card border-tech">
+                    <div class="card-bg" style="background-image: url('ressources/images/music/fond.jpg');"></div>
+                    <div class="card-overlay">
+                        <div class="card-title">Réalisation Vidéo</div>
+                        <div class="card-desc">Raconter des histoires par l'image, le montage et le mouvement.</div>
+                    </div>
+                </a>
+
+                <!-- ===== CARTE 3 : INFORMATIQUE & RÉSEAU ===== -->
+                <!-- Bordure rose (border-music) -->
+                <a href="ressources/info.html" class="portal-card border-music">
+                    <div class="card-bg" style="background-image: url('ressources/images/i&r/fond.jpg');"></div>
+                    <div class="card-overlay">
+                        <div class="card-title">Informatique & Réseau</div>
+                        <div class="card-desc">Comprendre, démonter, optimiser. Le cœur du système.</div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALBAS Jonathan - CV</title>
+    <link rel="stylesheet" href="ressources/style.css">
+
+    <!-- Favicons (déjà expliqués précédemment) -->
+    <link rel="icon" type="image/png" href="ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="ressources/favicon/site.webmanifest" />
+
+    <!-- ===== STYLE SPÉCIFIQUE POUR LA MISE EN PAGE DU CV ===== -->
+    <style>
+        /* ===== CONTENEUR PRINCIPAL DU CV (LAYOUT 2 COLONNES) ===== */
+        
+        .cv-container {
+            display: flex;
+            flex-wrap: wrap; /* Permet le passage à la ligne sur petits écrans */
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        /* ===== COLONNE GAUCHE : EXPÉRIENCES & FORMATIONS ===== */
+        
+        .cv-main {
+            /* flex: 2 : cette colonne prend 2 parts sur 3 de l'espace disponible
+               Si l'espace total est divisé en 3 parts (2+1), cette colonne prend 2/3
+               Crée une mise en page asymétrique avec colonne principale plus large */
+            flex: 2;
+            
+            /* min-width: assure une largeur minimale avant que flex-wrap ne passe à la ligne
+               Important pour le responsive : en dessous de 300px, la colonne passera en dessous */
+            min-width: 300px;
+        }
+
+        /* ===== COLONNE DROITE : COMPÉTENCES & INFOS ===== */
+        
+        .cv-sidebar {
+            /* flex: 1 : cette colonne prend 1 part sur 3 de l'espace disponible
+               Elle sera donc 2 fois plus petite que cv-main (ratio 2:1) */
+            flex: 1;
+            
+            min-width: 250px;
+            
+            /* linear-gradient : dégradé linéaire pour un fond subtil
+               135deg : angle du dégradé (diagonal de haut-gauche vers bas-droite)
+               #ffffff 0% : blanc au début (0%)
+               #f8f9fb 100% : gris très clair à la fin (100%)
+               Crée un effet de profondeur subtil */
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
+            
+            padding: 25px;
+            border-radius: 15px;
+            
+            /* var(--shadow) : variable CSS définie dans style.css externe
+               Permet de réutiliser la même ombre sur tout le site */
+            box-shadow: var(--shadow);
+            
+            /* height: fit-content : la hauteur s'adapte au contenu
+               Empêche la sidebar de s'étirer pour égaler la hauteur de cv-main */
+            height: fit-content;
+        }
+
+        /* ===== DESIGN DES ITEMS DE LA TIMELINE ===== */
+        
+        .cv-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            
+            /* border-left : ligne verticale orange sur le côté gauche
+               Crée l'axe visuel de la timeline */
+            border-left: 3px solid var(--tertiary);
+            
+            /* position: relative : nécessaire pour positionner le pseudo-élément ::before */
+            position: relative;
+        }
+
+        /* ===== PSEUDO-ÉLÉMENT : POINT DE LA TIMELINE ===== */
+        /* ::before : crée un élément virtuel AVANT le contenu de .cv-item
+           Utilisé ici pour créer le point rond sur la ligne de timeline */
+        .cv-item::before {
+            /* content: '' : obligatoire pour afficher le pseudo-élément
+               Vide car on veut juste un point visuel, pas de texte */
+            content: '';
+            
+            position: absolute;
+            
+            /* left: -8px : positionne le point sur la ligne (border-left de 3px)
+               Calcul : -8px centre un élément de 13px sur une bordure de 3px
+               (-8px + 13px/2 ≈ position de la bordure) */
+            left: -8px;
+            
+            top: 0;
+            
+            /* Dimensions du point circulaire */
+            width: 13px;
+            height: 13px;
+            
+            background-color: var(--secondary); /* Rose */
+            
+            /* border-radius: 50% : transforme un carré en cercle parfait
+               50% arrondit chaque coin jusqu'au centre de l'élément */
+            border-radius: 50%;
+        }
+
+        .cv-date {
+            font-weight: bold;
+            color: var(--tertiary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            
+            /* display: block : force l'élément sur sa propre ligne
+               Par défaut, <span> est inline (reste sur la même ligne)
+               Block le fait passer à la ligne suivante */
+            display: block;
+        }
+
+        .cv-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .cv-place {
+            /* font-style: italic : met le texte en italique */
+            font-style: italic;
+            
+            color: #666; /* Gris moyen */
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* ===== LISTES DE COMPÉTENCES ===== */
+        
+        .skill-list {
+            /* list-style: none : enlève les puces par défaut de la liste
+               Permet de créer un style personnalisé */
+            list-style: none;
+            
+            /* padding: 0 : enlève le padding à gauche par défaut des listes */
+            padding: 0;
+        }
+
+        .skill-list li {
+            /* rgba(29, 4, 105, 0.05) : violet très clair (5% d'opacité)
+               Crée un fond subtil pour chaque compétence */
+            background-color: rgba(29, 4, 105, 0.05);
+            
+            margin-bottom: 8px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            
+            /* display: flex avec justify-content: space-between :
+               Permet d'aligner le texte à gauche et l'emoji à droite sur la même ligne
+               Crée une disposition élégante "Compétence [emoji]" */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* ===== BOUTON DE TÉLÉCHARGEMENT ===== */
+        
+        .btn-download {
+            /* display: inline-block : permet d'appliquer padding/margin verticaux sur un lien
+               Les liens (<a>) sont inline par défaut et ignorent ces propriétés */
+            display: inline-block;
+            
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            
+            /* border-radius: 30px : coins très arrondis
+               Crée un bouton en forme de pilule (pill button) */
+            border-radius: 30px;
+            
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .btn-download:hover {
+            transform: scale(1.05); /* Agrandit de 5% au survol */
+            background-color: var(--secondary);
+            
+            /* box-shadow avec couleur rose semi-transparente
+               Crée un effet de "lueur" autour du bouton au survol */
+            box-shadow: 0 5px 15px rgba(250, 93, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - CV</div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="labo.html">Laboratoire Personnel</a></li>
+                    <li><a href="hobbies.html">Passions</a></li>
+                </ul>
+            </nav>
+
+            <div class="lang-switch">
+                <a href="cv.html" class="lang-btn active" title="Français">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <a href="../EN/cv.html" class="lang-btn" title="English">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- ===== EN-TÊTE DU CV ===== -->
+        <!-- Styles inline pour un centrage rapide -->
+        <section style="text-align: center; margin-bottom: 40px;">
+            <h1>Étudiant & Entrepeneur individuelle</h1>
+            
+            <!-- Paragraphe avec max-width pour limiter la largeur du texte
+                 margin: 0 auto : centre le bloc horizontalement
+                 0 = pas de marge verticale, auto = marges horizontales égales -->
+            <p style="max-width: 700px; margin: 0 auto;">
+                Passionné par l'informatique et la création audiovisuelle, je combine compétences techniques (SysAdmin, Hardware) 
+                et sensibilité artistique. Fondateur de Skynium, je cherche à mettre mon savoir-faire au service de projets ambitieux.
+                De plus, faire un BUT R&T permet d'améliorer mes compétences et de faire mes études dans un cadre que j'apprécie enormément.
+            </p>
+            
+            <!-- Lien de téléchargement vers un fichier PDF
+                 href pointe vers un fichier dans le dossier ressources/ -->
+            <a href="ressources/CV - BALBAS Jonathan.pdf" class="btn-download">Télécharger mon CV (PDF)</a>
+        </section>
+
+        <!-- ===== CONTENEUR 2 COLONNES : PARCOURS + COMPÉTENCES ===== -->
+        <div class="cv-container">
+            
+            <!-- ===== COLONNE GAUCHE : PARCOURS (2/3 DE LA LARGEUR) ===== -->
+            <div class="cv-main">
+                
+                <h2><strong>Expériences Professionnelles</strong></h2>
+                
+                <!-- ===== EXPÉRIENCE 1 ===== -->
+                <div class="cv-item">
+                    <!-- span.cv-date : affiche la période en haut de chaque expérience -->
+                    <span class="cv-date">2025 - Présent</span>
+                    <h3 class="cv-title">Réalisateur de film</h3>
+                    <span class="cv-place">Above The Sky Productions (Projet Personnel)</span>
+                    <p>
+                        Production de contenus audiovisuels événementiels et fictions.
+                    </p>
+                    <!-- Liste à puces classique pour détailler les missions -->
+                    <ul>
+                        <li>Réalisation de 6 courts/moyens métrages (dont un film de 2h + 1 projection au cinéma).</li>
+                        <li>Montage vidéo, étalonnage et mixage sonore.</li>
+                        <li>Collaboration avec étudiants en cinéma pour professionnaliser les productions.</li>
+                    </ul>
+                </div>
+
+                <!-- ===== EXPÉRIENCE 2 ===== -->
+                <div class="cv-item">
+                    <span class="cv-date">2019 - Présent</span>
+                    <h3 class="cv-title">Création entreprise</h3>
+                    <span class="cv-place">Skynium (Entreprise)</span>
+                    <p>
+                        Création et gestion d'une entreprise de services numériques.
+                    </p>
+                    <ul>
+                        <li>Assistance, dépannage et maintenance informatique (Hardware/Software).</li>
+                        <li>Lutte contre la fracture numérique : accompagnement pédagogique des clients.</li>
+                        <li>Gestion administrative et relation client.</li>
+                    </ul>
+                </div>
+
+                <h2><strong>Formations</strong></h2>
+
+                <!-- ===== FORMATION 1 ===== -->
+                <div class="cv-item">
+                    <span class="cv-date">2025 - Présent</span>
+                    <h3 class="cv-title">BUT Réseaux & Télécommunications</h3>
+                    <span class="cv-place">IUT R&T Luminy, Marseille</span>
+                    <p>
+                        Projet : <strong> Skynium Student Hub (SSH) </strong> création d'un portail web avec l'emploi du temps d'ADE plus rapide pour les étudiants de première année de l'IUT R&T.
+                    </p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="cv-date">2022 - 2025</span>
+                    <h3 class="cv-title">BAC Général</h3>
+                    <span class="cv-place">Lycée Adam de Craponne, Salon-de-Provence</span>
+                    <p>
+                        Spécialités : Mathématiques, Numérique & Sciences Informatiques, Sciences de l'Ingénieur (option en seconde et spécialité en première). <br>
+                        Mention Assez Bien obtenue en 2025 au Baccalauréat Général. <br>
+                        Projet : <strong> Skynium Teacher </strong> aussi mis en place pour aider les professeurs avec les outils numériques, <strong> Projet Robo Sumo </strong> (réalisation d'un robot avec une carte aduino qui doit se battre avec d'autres robots, j'en suis le gagnant).
+                    </p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="cv-date">2019 - 2022</span>
+                    <h3 class="cv-title">Brevet des Collèges</h3>
+                    <span class="cv-place">Collège Joseph d'Arbaud, Salon-de-Provence</span>
+                    <p>
+                        Mention Assez Bien obtenue en 2022 au Brevet des Collèges. <br>
+                        Projet : <strong> Skynium Teacher </strong> (aide des professeurs de lycée avec les outils numériques),<strong> Vidéo contre le harcèlement </strong> réalisé bénévolement (diffusée dans tout le collège).
+
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- ===== COLONNE DROITE : COMPÉTENCES (1/3 DE LA LARGEUR) ===== -->
+            <div class="cv-sidebar">
+                
+                <h2>Compétences Techniques</h2>
+                <!-- Liste sans puces (list-style: none) avec design personnalisé -->
+                <ul class="skill-list">
+                    <!-- Chaque <li> utilise flex pour espacer le texte et l'emoji
+                         <span> à droite contient l'emoji décoratif -->
+                    <li>Maintenance Hardware <span>🛠️</span></li>
+                    <li>Réseaux & IoT (Zigbee) <span>📡</span></li>
+                    <li>SysAdmin (Auth0, SSO) <span>🔐</span></li>
+                    <li>HTML / CSS <span>💻</span></li>
+                    <li>Montage Vidéo <span>🎬</span></li>
+                    <li>MAO (Musique) <span>🎵</span></li>
+                </ul>
+
+                <br>
+
+                <h2>Logiciels Maîtrisés</h2>
+                <ul class="skill-list">
+                    <li>HomeAssistant</li>
+                    <li>Final Cut Pro / DaVinci Resolve</li>
+                    <li>Suite Office 365 / Infomaniak</li>
+                    <li>Visual Studio Code</li>
+                </ul>
+
+                <br>
+
+                <h2>Savoir-être (Soft Skills)</h2>
+                <p>
+                    Curieux, pédagogue, persévérant, esprit d'initiative, travail en équipe.
+                </p>
+
+                <br>
+                <h2>Langues</h2>
+                <p>
+                    <strong>Français :</strong> Langue maternelle<br>
+                    <strong>Anglais :</strong> Niveau B1 intermédiaire<br>
+                    <strong>Espagnol :</strong> Notions de base<br>
+                </p>
+
+                <br>
+
+                <h2>Certifications</h2>
+                <p>
+                    <!-- Lien externe vers une page de certification sur Credly -->
+                    <a href="https://www.credly.com/users/lucas-skynium">Make Academy - Automatisation</a> 
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

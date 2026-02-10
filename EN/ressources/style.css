@@ -1,0 +1,344 @@
+/* --- CONFIGURATION GÉNÉRALE & VARIABLES --- */
+:root {
+    --bg-color: #f8f9fb;       /* Blanc légèrement cassé */
+    --primary: #1D0469;        /* Violet dominant */
+    --secondary: #FA5DFF;      /* Rose/Magenta (boutons, liens) */
+    --tertiary: #FF8A3F;       /* Orange (accents) */
+    --text-dark: #333333;      /* Pour le texte standard */
+    --shadow: 0 4px 15px rgba(29, 4, 105, 0.1); /* Ombre douce teintée */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Fond de base propre */
+    background-color: var(--bg-color); 
+    
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative; 
+    overflow-x: hidden;
+}
+
+/* La bulle "Liquide" en bas à droite */
+body::before {
+    content: "";
+    position: fixed;
+    bottom: -15%;
+    right: -15%;
+    
+    /* Taille de la bulle */
+    width: 70vh;  /* Utilise la hauteur de l'écran pour s'adapter */
+    height: 70vh;
+    max-width: 700px;
+    max-height: 700px;
+    
+    /* LE MÉLANGE DE COULEURS */
+    /* On utilise un dégradé conique (circulaire) pour éviter l'effet ligne */
+    background: radial-gradient(
+        circle at center,
+        var(--tertiary),  /* Orange au centre */
+        var(--secondary), /* Rose autour */
+        var(--primary)    /* Violet sur les bords */
+    );
+    /* On ajoute un deuxième fond pour complexifier le mélange */
+    background-image: linear-gradient(
+        45deg, 
+        var(--primary) 0%, 
+        var(--secondary) 50%, 
+        var(--tertiary) 100%
+    );
+    background-size: 200% 200%;
+    background-blend-mode: overlay; /* Mélange les deux couches de couleurs */
+    
+    /* LE FLOU */
+    filter: blur(70px);
+    opacity: 0.7;
+    z-index: -1;
+    
+    /* LES 3 ANIMATIONS DÉCALÉES POUR L'EFFET ALÉATOIRE */
+    animation: 
+        liquidMorph 13s ease-in-out infinite alternate, /* Déforme la bulle (13s) */
+        colorShift 17s ease infinite,                   /* Bouge les couleurs (17s) */
+        gentleFloat 23s ease-in-out infinite;           /* Bouge la position (23s) */
+}
+
+/* --- BANDEAU (HEADER) --- */
+header {
+    background-color: rgba(255, 255, 255, 0.95); /* Légèrement transparent pour voir le fond passer dessous */
+    backdrop-filter: blur(5px); /* Effet de flou moderne derrière le menu */
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Bloc Identité (Logo + Nom) */
+.identite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.identite img {
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.identite img:hover {
+    transform: scale(1.05);
+}
+
+.nom {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* --- MENU DE NAVIGATION --- */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(250, 93, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- CONTENU PRINCIPAL --- */
+main {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--tertiary);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+    max-width: 800px;
+}
+
+/* --- SECTION PROJETS (Layout) --- */
+
+.projet-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.projet-texte {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Responsive : Mobile */
+@media (max-width: 768px) {
+    .projet-layout {
+        flex-direction: column;
+    }
+    .carousel-container {
+        width: 100% !important;
+    }
+}
+
+/* --- CARROUSEL (Style & Animation) --- */
+
+.carousel-container {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: white;
+}
+
+.carousel-slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carousel-slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- DESCRIPTION SUR L'IMAGE --- */
+
+.slide-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 15px 10px 15px;
+    background: linear-gradient(to top, var(--primary) 0%, rgba(29, 4, 105, 0) 100%);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.carousel-container:hover .slide-desc {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- ANIMATIONS (KEYFRAMES) --- */
+
+/* 1. Déforme la bulle comme un liquide (Border Radius complexe) */
+@keyframes liquidMorph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    33% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    66% {
+        border-radius: 70% 30% 50% 50% / 30% 40% 60% 70%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* 2. Fait bouger le fond de couleur pour simuler le mélange */
+@keyframes colorShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 3. Fait flotter légèrement la bulle de haut en bas et gauche à droite */
+@keyframes gentleFloat {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-20px, 15px) rotate(5deg); }
+    50% { transform: translate(10px, -10px) rotate(-3deg); }
+    75% { transform: translate(-15px, -25px) rotate(2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* --- SÉLECTEUR DE LANGUE --- */
+
+/* Le conteneur des drapeaux */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre les deux drapeaux */
+    margin-left: 20px; /* Espace entre le menu et les drapeaux */
+    padding-left: 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1); /* Petite ligne de séparation discrète */
+}
+
+/* Style des liens (balise a) */
+.lang-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Rend l'image ronde */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.7; /* Légèrement transparent par défaut */
+}
+
+/* L'image du drapeau elle-même */
+.lang-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit bien le rond sans déformation */
+    display: block;
+}
+
+/* Effet au survol */
+.lang-btn:hover {
+    transform: scale(1.2); /* Grossit un peu */
+    opacity: 1; /* Devient totalement visible */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Classe pour indiquer la langue active (optionnel, garde l'opacité à 1) */
+.lang-btn.active {
+    opacity: 1;
+    border: 2px solid white; /* Petit cercle blanc autour */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* --- ADAPTATION RESPONSIVE --- */
+@media (max-width: 768px) {
+    /* Sur mobile, on cache la ligne de séparation et on réduit les marges */
+    .lang-switch {
+        border-left: none;
+        margin-left: 10px;
+        padding-left: 0;
+        gap: 10px;
+    }
+}

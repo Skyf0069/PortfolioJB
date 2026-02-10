@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALBAS Jonathan - LABORATOIRE PERSONNEL</title>
+    
+    <!-- Feuille de style spécifique pour le thème "cuisine/laboratoire" -->
+    <link rel="stylesheet" href="ressources/kitchen.css">
+
+    <!-- Favicons (déjà expliqué dans index.html) -->
+    <link rel="icon" type="image/png" href="/ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="/ressources/favicon/site.webmanifest" />
+    </head>
+<body>
+
+    <!-- ===== ÉLÉMENTS DÉCORATIFS THÉMATIQUES "CUISINE" ===== -->
+    <!-- Emojis positionnés aux coins de la page pour créer une ambiance thématique
+         Les classes deco-top-left, deco-top-right, etc. définissent leur position via kitchen.css -->
+    <div class="kitchen-deco deco-top-left">👨‍🍳</div>
+    <div class="kitchen-deco deco-top-right">🥗</div>
+    <div class="kitchen-deco deco-bottom-left">🔥</div>
+    <div class="kitchen-deco deco-bottom-right">🔪</div>
+    <div class="kitchen-deco deco-center-right">🧂</div>
+    
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - LABORATOIRE PERSONNEL</div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="cv.html">Cv</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="labo.html">LABORATOIRE PERSONNEL</a></li>
+                    <li><a href="hobbies.html">Passions</a></li>
+                </ul>
+            </nav>
+
+            <div class="lang-switch">
+                <a href="labo.html" class="lang-btn active" title="Français">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <a href="../EN/labo.html" class="lang-btn" title="English">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ===== GUIRLANDE DE LUMIÈRES DÉCORATIVES ===== -->
+    <!-- Barre horizontale avec plusieurs ampoules animées (effet lumineux)
+         Chaque <span class="bulb"> représente une ampoule individuelle
+         L'animation et la couleur sont gérées par kitchen.css -->
+    <div class="lights-rack">
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+    </div>
+
+    <main>
+        
+        <!-- ===== EN-TÊTE DE PAGE ===== -->
+        <div class="header-section">
+            <h1>Laboratoire personnel</h1>
+            <p class="subtitle">Mes projets personnels</p>
+        </div>
+
+        <!-- ===== SECTION CONTENANT TOUS LES PROJETS ===== -->
+        <section class="projet-section">
+
+            <!-- ===== PROJET 1 : IAM & SSO ===== -->
+            <!-- Classe "stainless-counter" : crée un effet "plan de travail en inox" (défini dans kitchen.css) -->
+            <div class="stainless-counter">
+                <h2>Intégration IAM & SSO : Auth0 / Infomaniak</h2>
+
+                <!-- Layout du projet : permet d'organiser texte et images côte à côte ou empilés -->
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            Ce projet technique, réalisé au sein de mon infrastructure personnelle, visait à résoudre une problématique complexe d'interopérabilité entre deux écosystèmes majeurs : <strong>Auth0</strong> (gestionnaire d'identité) et la suite collaborative <strong>Infomaniak kSuite</strong>. L'objectif était de mettre en place une authentification unique (SSO) fluide et sécurisée pour l'environnement Skynium.
+                        </p>
+                        <p>
+                            Confronté aux limitations du protocole SAML dans ce contexte spécifique, j'ai pivoté vers une architecture basée sur <strong>OAuth2</strong>. Ce défi m'a amené à manipuler des API REST, à déboguer des flux d'authentification et à développer des scripts personnalisés (en JavaScript) pour assurer le mappage correct des données utilisateurs (User Mapping) entre les deux fournisseurs. Ce projet démontre ma capacité à lier des briques logicielles hétérogènes pour créer une expérience utilisateur unifiée.
+                        </p>
+                        <p>
+                            <strong>Avertissement</strong>
+                        </p>
+                        <p>
+                            <!-- <em> : texte en italique pour mettre en évidence -->
+                            <em>Avertissement Légal :</em> Les marques citées (telles que Infomaniak&trade;, Auth0&trade;, etc.) appartiennent à leurs propriétaires respectifs. 
+                            L'utilisation de ces noms est faite ici à titre purement descriptif et pédagogique dans le cadre d'un portfolio étudiant (Fair Use), 
+                            afin d'illustrer les compétences techniques acquises sur ces technologies. 
+                            Ce site n'a aucune affiliation commerciale, partenariat ou lien officiel avec les entreprises mentionnées.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SÉPARATEUR VISUEL ===== -->
+            <!-- div vide avec hauteur fixe pour créer de l'espace entre les sections -->
+            <div style="height: 50px;"></div>
+
+            <!-- ===== PROJET 2 : DOMOTIQUE ===== -->
+            <div class="stainless-counter">
+                <h2>Domotique : Automatisation de ma chambre</h2>
+
+                <div class="projet-layout">
+                    <!-- ===== CONTENEUR CARROUSEL (structure prête pour images multiples) ===== -->
+                    <div class="carousel-container">
+                        <div class="carousel-slides">
+                            <!-- Slide unique pour l'instant, mais structure extensible -->
+                            <div class="slide">
+                                <div class="slide-desc">Dashboard de contrôle centralisé.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projet-texte">
+                        <p>
+                            Au-delà du simple gadget, j'ai transformé mon espace personnel en un véritable environnement réactif grâce à <strong>HomeAssistant</strong>. Ce projet perpétuel est mon terrain de jeu pour expérimenter l'Internet des Objets (IoT). J'y intègre des protocoles variés pour centraliser le contrôle de l'éclairage, la sonnerie et du multimédia, le tout sans dépendre du cloud.
+                        </p>
+                        
+                        <!-- Image avec attributs width et height pour réserver l'espace et éviter le layout shift
+                             width="75%" : image prend 75% de la largeur du conteneur
+                             height="auto" : la hauteur s'ajuste automatiquement pour garder les proportions -->
+                        <img src="ressources/images/hascreen.png" alt="Interface HomeAssistant" width="75%" height="auto">
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div>
+
+            <!-- ===== PROJET 3 : SSH (SKYNIUM STUDENT HUB) ===== -->
+            <!-- Style inline : border-color personnalisée pour différencier visuellement ce projet -->
+            <div class="stainless-counter" style="border-color: #6610f2;">
+                <h2>L'emploi Du Temps : SSH (Skynium Student Hub)</h2>
+
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            Face à la lenteur de la plateforme officielle (ADE), j'ai cuisiné ma propre solution : le <strong>SSH (Skynium Student Hub)</strong>. C'est une interface web ultra-rapide conçue pour servir l'emploi du temps aux étudiants de l'IUT R&T de Luminy sans temps de chargement indigeste.
+                        </p>
+                        <p>
+                            La recette secrète ? Un script backend ("La mise en place") s'exécute automatiquement chaque nuit à <strong>04h00 du matin</strong> pour récupérer et cacher les données.
+                            Le système est intelligent : en se connectant, l'élève ne voit que le "Menu" qui le concerne. L'affichage filtre dynamiquement les cours selon son groupe de <strong>TP</strong> ou de <strong>TD</strong>, offrant une expérience personnalisée et épurée.
+                        </p>
+                        
+                        <!-- Paragraphe avec styles inline multiples pour créer un bloc visuellement distinct
+                             color: #6610f2 : couleur violette assortie à la bordure
+                             font-weight: bold : texte en gras
+                             font-size: 0.9em : taille légèrement réduite (90% de la taille parente) -->
+                        <p style="color: #6610f2; font-weight: bold; font-size: 0.9em;">
+                            <!-- span avec font-size: 1.2em : emoji légèrement plus grand que le texte environnant -->
+                            <span style="font-size: 1.2em;">🚀</span> Performance : 5x plus rapide que l'outil officiel.
+                        </p>
+                    </div>
+
+                    <div class="projet-texte">
+                        <img src="ressources/images/ade/ssh.png" alt="Interface SSH" width="100%" height="auto">
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div>
+
+            <!-- ===== PROJET 4 : RASPBERRY PI (EN COURS) ===== -->
+            <!-- Bordure jaune (#ffc107) pour signaler visuellement un projet "en travaux" -->
+            <div class="stainless-counter" style="border-color: #ffc107;">
+                <h2>En Mijotage : Infrastructure Cloud & Raspberry Pi</h2>
+
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            Ma prochaine expérimentation hardware ("Le plat de résistance") consistera à déployer un serveur Linux autonome sur un <strong>Raspberry Pi</strong>. L'objectif est de m'affranchir des solutions propriétaires pour créer mon propre cloud personnel.
+                        </p>
+                        <p>
+                            Je vais me concentrer sur la sécurité d'accès distant (Remote Access) en adoptant une architecture <strong>Zero Trust</strong>. Je prévois de comparer et d'implémenter des solutions comme <strong>Cloudflare Tunnel</strong> ou <strong>Tailscale</strong>. Cela me permettra d'accéder à mes conteneurs et fichiers depuis n'importe où, sans exposer de ports inutilement sur ma box internet.
+                        </p>
+                        
+                        <!-- Paragraphe de statut avec couleur marron foncé (#856404)
+                             font-style: italic : texte en italique pour différencier du contenu principal -->
+                        <p style="color: #856404; font-size: 0.9em; font-style: italic;">
+                            <span style="font-size: 1.2em;">⏲️</span> Statut : Commande du matériel en cours / Phase de conception.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div>
+
+            <!-- ===== PROJET 5 : VIRTUALISATION (EN COURS) ===== -->
+            <div class="stainless-counter" style="border-color: #ffc107;">
+                <h2>R&D : Virtualisation & Services Réseaux (Labo R&T)</h2>
+
+                <div class="projet-layout">
+
+                    <div class="projet-texte">
+                        <p>
+                            Inspiré par mes cours en <strong>IUT R&T</strong>, je souhaite transformer mon Raspberry Pi en un véritable hyperviseur de poche. L'objectif est de segmenter mon infrastructure via des machines virtuelles (VM) ou des conteneurs pour recréer un réseau d'entreprise miniature.
+                        </p>
+                        <p>
+                            Je compte y déployer et configurer manuellement les services fondamentaux d'Internet : un serveur <strong>DHCP</strong> pour la distribution d'adresses et un serveur <strong>DNS</strong> local (peut-être couplé à un Pi-hole) pour la résolution de noms. C'est pour moi la meilleure façon de "mettre les mains dans le cambouis" et de maîtriser les protocoles qui régissent nos échanges numériques, tout en m'amusant à construire une architecture résiliente.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ===== PIED DE PAGE ===== -->
+    <footer>
+        <!-- &copy; : entité HTML pour le symbole copyright © -->
+        <p>Skynium&copy;</p>
+    </footer>
+
+</body>
+</html>

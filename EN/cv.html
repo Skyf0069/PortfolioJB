@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALBAS Jonathan - CV</title>
+    <link rel="stylesheet" href="ressources/style.css">
+
+    <link rel="icon" type="image/png" href="ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="ressources/favicon/site.webmanifest" />
+
+    <style>
+        .cv-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .cv-main {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .cv-sidebar {
+            flex: 1;
+            min-width: 250px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .cv-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid var(--tertiary);
+            position: relative;
+        }
+
+        .cv-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .cv-date {
+            font-weight: bold;
+            color: var(--tertiary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .cv-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .cv-place {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            background-color: rgba(29, 4, 105, 0.05);
+            margin-bottom: 8px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .btn-download:hover {
+            transform: scale(1.05);
+            background-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(250, 93, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - CV</div>
+        </div>
+
+    
+        <div style="display: flex; align-items: center;">
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="projets.html">Projects</a></li>
+                    <li><a href="labo.html">Personal Lab</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="lang-switch">
+                <a href="../FR/cv.html" class="lang-btn" title="French">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <a href="cv.html" class="lang-btn active" title="English">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        
+        <section style="text-align: center; margin-bottom: 40px;">
+            <h1>Student & Sole Proprietor</h1>
+            <p style="max-width: 700px; margin: 0 auto;">
+                Passionate about IT and audiovisual creation, I combine technical skills (SysAdmin, Hardware) 
+                with artistic sensitivity. Founder of Skynium, I aim to put my expertise at the service of ambitious projects.
+                Furthermore, studying for a BUT R&T degree allows me to improve my skills and study in an environment I greatly appreciate.
+            </p>
+            <a href="ressources/CV - BALBAS Jonathan.pdf" class="btn-download">Download my CV (PDF)</a>
+        </section>
+
+        <div class="cv-container">
+            
+            <div class="cv-main">
+                
+                <h2><strong>Professional Experience</strong></h2>
+                
+                <div class="cv-item">
+                    <span class="cv-date">2025 - Present</span>
+                    <h3 class="cv-title">Film Director</h3>
+                    <span class="cv-place">Above The Sky Productions (Personal Project)</span>
+                    <p>
+                        Production of event-based audiovisual content and fiction.
+                    </p>
+                    <ul>
+                        <li>Directed 6 short/medium-length films (including a 2h film + 1 cinema screening).</li>
+                        <li>Video editing, color grading, and sound mixing.</li>
+                        <li>Collaboration with cinema students to professionalize productions.</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <span class="cv-date">2019 - Present</span>
+                    <h3 class="cv-title">Company Founder</h3>
+                    <span class="cv-place">Skynium (Company)</span>
+                    <p>
+                        Creation and management of a digital services company.
+                    </p>
+                    <ul>
+                        <li>IT assistance, troubleshooting, and maintenance (Hardware/Software).</li>
+                        <li>Fighting the digital divide: pedagogical support for clients.</li>
+                        <li>Administrative management and client relations.</li>
+                    </ul>
+                </div>
+
+                <h2><strong>Education</strong></h2>
+
+                <div class="cv-item">
+                    <span class="cv-date">2025 - Present</span>
+                    <h3 class="cv-title">BUT Networks & Telecommunications</h3>
+                    <span class="cv-place">IUT R&T Luminy, Marseille</span>
+                    <p>
+                        Project: <strong> Skynium Student Hub (SSH) </strong> creation of a web portal with the ADE schedule, faster for first-year IUT R&T students.
+                    </p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="cv-date">2022 - 2025</span>
+                    <h3 class="cv-title">General Baccalaureate</h3>
+                    <span class="cv-place">Lycée Adam de Craponne, Salon-de-Provence</span>
+                    <p>
+                        Specialties: Mathematics, Digital & Computer Sciences, Engineering Sciences (option in 10th grade and specialty in 11th grade). <br>
+                        Graduated with Honors (Assez Bien) in 2025. <br>
+                        Project: <strong> Skynium Teacher </strong> also implemented to help teachers with digital tools, <strong> Robo Sumo Project </strong> (creation of a robot with an Arduino board to fight other robots, I was the winner).
+                    </p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="cv-date">2019 - 2022</span>
+                    <h3 class="cv-title">Diplôme National du Brevet</h3>
+                    <span class="cv-place">Collège Joseph d'Arbaud, Salon-de-Provence</span>
+                    <p>
+                        Graduated with Honors (Assez Bien) in 2022. <br>
+                        Project: <strong> Skynium Teacher </strong> (helping high school teachers with digital tools),<strong> Anti-bullying video </strong> made voluntarily (broadcast throughout the middle school).
+
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="cv-sidebar">
+                
+                <h2>Technical Skills</h2>
+                <ul class="skill-list">
+                    <li>Hardware Maintenance <span>🛠️</span></li>
+                    <li>Networks & IoT (Zigbee) <span>📡</span></li>
+                    <li>SysAdmin (Auth0, SSO) <span>🔐</span></li>
+                    <li>HTML / CSS <span>💻</span></li>
+                    <li>Video Editing <span>🎬</span></li>
+                    <li>Computer Music (MAO) <span>🎵</span></li>
+                </ul>
+
+                <br>
+
+                <h2>Software Proficiency</h2>
+                <ul class="skill-list">
+                    <li>HomeAssistant</li>
+                    <li>Final Cut Pro / DaVinci Resolve</li>
+                    <li>Office 365 Suite / Infomaniak</li>
+                    <li>Visual Studio Code</li>
+                </ul>
+
+                <br>
+
+                <h2>Soft Skills</h2>
+                <p>
+                    Curious, pedagogical, persevering, initiative-taking, teamwork.
+                </p>
+
+                <br>
+                <h2>Languages</h2>
+                <p>
+                    <strong>French:</strong> Native<br>
+                    <strong>English:</strong> Intermediate (B1)<br>
+                    <strong>Spanish:</strong> Basic notions<br>
+                </p>
+
+                <br>
+
+                <h2>Certifications</h2>
+                <p>
+                    <a href="https://www.credly.com/users/lucas-skynium">Make Academy - Automation</a> 
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

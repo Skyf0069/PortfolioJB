@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- meta viewport : essentiel pour le responsive design
+         width=device-width : la largeur de la page = largeur de l'appareil
+         initial-scale=1.0 : zoom initial à 100% (pas de zoom par défaut) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>BALBAS Jonathan - ACCUEIL</title>
+    
+    <!-- Lien vers la feuille de style externe principale -->
+    <link rel="stylesheet" href="ressources/style.css">
+
+    <!-- ===== FAVICONS : icônes du site affichées dans l'onglet du navigateur ===== -->
+    
+    <!-- Favicon PNG standard pour navigateurs modernes (taille 96x96) -->
+    <link rel="icon" type="image/png" href="ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    
+    <!-- Favicon SVG : format vectoriel qui s'adapte à toutes les tailles (navigateurs récents) -->
+    <link rel="icon" type="image/svg+xml" href="ressources/favicon/favicon.svg" />
+    
+    <!-- Favicon ICO : format legacy pour les anciens navigateurs (IE, vieux Chrome) -->
+    <link rel="shortcut icon" href="ressources/favicon/favicon.ico" />
+    
+    <!-- Apple Touch Icon : icône utilisée quand on ajoute le site à l'écran d'accueil iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/favicon/apple-touch-icon.png" />
+    
+    <!-- Nom affiché sur iOS quand le site est ajouté à l'écran d'accueil -->
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    
+    <!-- Manifest : fichier JSON pour les Progressive Web Apps (PWA)
+         Permet d'installer le site comme une app sur mobile/desktop -->
+    <link rel="manifest" href="ressources/favicon/site.webmanifest" />
+    
+    <style>
+        /* ===== GRILLE DE CARTES RESPONSIVE ===== */
+        
+        .home-grid {
+            /* CSS Grid : système de mise en page en grille */
+            display: grid;
+            
+            /* repeat(auto-fit, ...) : crée automatiquement le nombre de colonnes nécessaires
+               minmax(280px, 1fr) : chaque carte fait minimum 280px, maximum 1 fraction égale de l'espace
+               Résultat : les cartes se réorganisent automatiquement selon la largeur de l'écran */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            
+            /* Espacement uniforme de 30px entre toutes les cartes */
+            gap: 30px;
+            
+            margin-top: 50px;
+        }
+
+        .home-card {
+            /* rgba(255, 255, 255, 0.8) : blanc avec 80% d'opacité (légèrement transparent) */
+            background: rgba(255, 255, 255, 0.8);
+            
+            /* backdrop-filter: blur(10px) : effet de flou sur ce qui est derrière la carte
+               Crée un effet "verre dépoli" moderne (glassmorphism)
+               Attention : ne fonctionne pas sur tous les navigateurs (IE, Firefox ancien) */
+            backdrop-filter: blur(10px);
+            
+            padding: 30px;
+            border-radius: 20px; /* Coins arrondis */
+            
+            /* box-shadow : crée une ombre portée
+               0 = décalage horizontal (0 = centré)
+               10px = décalage vertical (vers le bas)
+               30px = rayon de flou
+               rgba(..., 0.1) = couleur avec 10% d'opacité */
+            box-shadow: 0 10px 30px rgba(29, 4, 105, 0.1);
+            
+            /* text-decoration: none : enlève le soulignement du lien */
+            text-decoration: none;
+            
+            /* var(--text-dark) : variable CSS définie dans style.css externe */
+            color: var(--text-dark);
+            
+            /* transition : anime les changements de propriétés
+               transform et box-shadow changeront progressivement sur 0.3s avec courbe ease */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            /* border transparent par défaut, devient visible au hover */
+            border: 2px solid transparent;
+            
+            /* ===== FLEXBOX POUR CENTRAGE VERTICAL ===== */
+            /* Flexbox : système de mise en page flexible pour aligner les éléments */
+            display: flex;
+            
+            /* flex-direction: column : empile les éléments verticalement au lieu d'horizontalement */
+            flex-direction: column;
+            
+            /* align-items: center : centre les éléments horizontalement (car direction = column) */
+            align-items: center;
+            
+            text-align: center;
+        }
+
+        /* :hover = état quand la souris survole l'élément */
+        .home-card:hover {
+            /* translateY(-10px) : déplace la carte de 10px vers le haut
+               Crée un effet de "levée" au survol */
+            transform: translateY(-10px);
+            
+            /* Ombre plus prononcée au survol (plus grande et plus visible) */
+            box-shadow: 0 20px 40px rgba(250, 93, 255, 0.2);
+            
+            /* La bordure transparente devient rose (couleur secondaire) au survol */
+            border-color: var(--secondary);
+        }
+
+        .card-icon {
+            /* Emoji/icône très grande (3 fois la taille normale) */
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            
+            /* font-weight: 700 : texte en gras (échelle de 100 à 900, 400 = normal, 700 = bold) */
+            font-weight: 700;
+            
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #666; /* Gris moyen pour le texte secondaire */
+            line-height: 1.5; /* Espacement vertical entre les lignes (150% de la taille de police) */
+        }
+
+        /* ===== SECTION HERO (BANDEAU D'ACCUEIL) ===== */
+        
+        .hero-section {
+            text-align: center;
+            padding: 40px 0; /* Padding vertical uniquement (haut et bas) */
+        }
+        
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: var(--tertiary); /* Orange */
+            font-weight: 600; /* Semi-gras */
+            
+            /* text-transform: uppercase : transforme tout le texte en majuscules automatiquement */
+            text-transform: uppercase;
+            
+            /* letter-spacing : espace entre chaque lettre (tracking en typographie)
+               Donne un aspect plus aéré et moderne au texte */
+            letter-spacing: 2px;
+            
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== EN-TÊTE DE LA PAGE ===== -->
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - ACCUEIL</div>
+        </div>
+
+        <!-- ===== CONTENEUR NAVIGATION + LANGUES ===== -->
+        <!-- Style inline : display: flex pour aligner nav et langues horizontalement
+             align-items: center : centre verticalement les éléments -->
+        <div style="display: flex; align-items: center;">
+        
+            <!-- ===== MENU DE NAVIGATION ===== -->
+            <nav>
+                <!-- Liste non ordonnée (<ul>) pour la navigation
+                     Structure sémantique recommandée pour les menus -->
+                <ul>
+                    <!-- Chaque <li> contient un lien de navigation -->
+                    <li><a href="index.html">ACCUEIL</a></li>
+                    <li><a href="cv.html">Cv</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="labo.html">Laboratoire Personnel</a></li>
+                    <li><a href="hobbies.html">Passions</a></li>
+                </ul>
+            </nav>
+
+            <!-- ===== SÉLECTEUR DE LANGUE ===== -->
+            <div class="lang-switch">
+                <!-- Bouton Français : classe "active" indique la langue actuelle -->
+                <a href="index.html" class="lang-btn active" title="Français">
+                    <!-- Drapeau depuis l'API flagcdn.com (CDN externe)
+                         w40 = largeur 40px, fr.png = drapeau français -->
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <!-- Bouton Anglais : lien vers la version anglaise du site (dossier ../EN/)
+                     ../ remonte d'un niveau dans l'arborescence -->
+                <a href="../EN/index.html" class="lang-btn" title="English">
+                    <!-- gb.png = drapeau britannique (Great Britain) -->
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ===== CONTENU PRINCIPAL DE LA PAGE ===== -->
+    <main>
+        <!-- ===== SECTION 1 : HERO (PRÉSENTATION PRINCIPALE) ===== -->
+        <section class="hero-section">
+            <!-- Tagline : phrase d'accroche courte en haut -->
+            <div class="hero-tagline">Entrepreneur & Créateur Numérique</div>
+            
+            <!-- Titre principal de la page (H1 : 1 seul par page pour le SEO) -->
+            <h1>La technologie au service de l'Homme.</h1>
+            
+            <!-- Paragraphe de présentation avec styles inline :
+                 max-width: 800px : limite la largeur pour la lisibilité
+                 margin: 20px auto : centre horizontalement (auto = marges égales gauche/droite)
+                 font-size: 1.2rem : texte légèrement plus grand que la normale -->
+            <p style="max-width: 800px; margin: 20px auto; font-size: 1.2rem;">
+                Bienvenue dans mon univers. Je suis <strong>Jonathan BALBAS</strong>, fondateur de Skynium et étudiant de première année à l'IUT R&T de Luminy. 
+                Passionné par l'informatique et les nouvelles technologies, je me consacre à rendre le numérique accessible et compréhensible pour tous.
+            </p>
+        </section>
+
+        <!-- ===== SECTION 2 : GRILLE DE CARTES ===== -->
+        <div class="home-grid">
+
+            <!-- ===== CARTE 1 : PROJETS ===== -->
+            <!-- <a> utilisé comme conteneur de carte : toute la carte est cliquable -->
+            <a href="projets.html" class="home-card">
+                <!-- Emoji comme icône décorative -->
+                <div class="card-icon">🚀</div>
+                <div class="card-title">Mes Ambitions</div>
+                <div class="card-text">
+                    Découvrez <strong>Skynium</strong>, mon entreprise de services, 
+                    ainsi que mes concepts architecturaux comme la <strong>Skynium Arena</strong>.
+                </div>
+            </a>
+
+            <!-- ===== CARTE 2 : LABORATOIRE ===== -->
+            <a href="labo.html" class="home-card">
+                <div class="card-icon">🧪</div>
+                <div class="card-title">Le Labo Technique</div>
+                <div class="card-text">
+                    Plongez dans ma "Cuisine" interne : Infrastructure SSO, 
+                    Domotique HomeAssistant et expérimentations réseaux.
+                </div>
+            </a>
+
+            <!-- ===== CARTE 3 : PASSIONS ===== -->
+            <a href="hobbies.html" class="home-card">
+                <div class="card-icon">✨</div>
+                <div class="card-title">Mes Inspirations</div>
+                <div class="card-text">
+                    L'énergie de l'Eurovision, la précision du studio son 
+                    et l'art de la réalisation vidéo. Entrez dans le multivers.
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

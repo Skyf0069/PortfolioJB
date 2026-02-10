@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenography & Eurovision - Jonathan Balbas</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .gallery-item {
+            height: 200px;
+            background: #000;
+            border: 2px solid var(--euro-blue);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover { transform: scale(1.05); border-color: var(--euro-gold); box-shadow: 0 0 20px var(--euro-gold); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+
+        .video-carousel-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 2px solid var(--euro-pink);
+            box-shadow: 0 0 30px rgba(250, 93, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+            background: black;
+        }
+
+        .video-slides {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+        
+        .video-slides::-webkit-scrollbar { display: none; }
+
+        .video-slide {
+            min-width: 100%;
+            position: relative;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .video-desc {
+            background: linear-gradient(to right, var(--euro-blue), black);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-top: 2px solid var(--euro-pink);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+        }
+
+
+        .gallery-item {
+            position: relative; 
+        }
+
+        .copyright-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            
+            background: rgba(0, 0, 0, 0.8); 
+            
+            color: #fff;
+            font-size: 0.7rem; 
+            padding: 8px;
+            text-align: center;
+            line-height: 1.4;
+            opacity: 0; 
+            transition: opacity 0.3s ease;
+        }
+
+        .photographer {
+            color: #aaa;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        .gallery-item:hover .copyright-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stage-floor"></div>
+    
+    <div class="particles"></div>
+
+    <div class="beam-container">
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div> <div class="beam"></div>
+        <div class="beam"></div>
+    </div>
+
+    <header>
+        <div class="nom">HOBBIES - The Big Stage</div>
+        <a href="../hobbies.html" class="back-btn">← Return to Portal</a>
+    </header>
+
+    <main>
+        
+        <h1>
+            EUROVISION
+            <span>SCENOGRAPHY & TECH</span>
+        </h1>
+
+        <div class="glass-card">
+            <p>
+                For me, Eurovision is not just a TV show; it is really what inspired me to create the <strong>Skynium Arena</strong>.
+                I love seeing how they use thousands of lights to transform the venue for every song, the impressive number of cameras flying everywhere, and above all, the energy of the crowd that you can feel even through the screen. It is this "wow" feeling and this mix of technique and spectacle that I want to succeed in recreating in my own projects.
+            </p>
+            <p>
+                If I had to choose my best year, it is clearly <strong>Malmö 2024</strong>. I found the visuals magnificent, especially the use of suspended LED cubes and the theme with colorful neons. It was ultra-modern and dynamic.
+                Furthermore, it was the return of <strong>Petra Mede</strong>, my favorite actress and presenter. This is the third time she has hosted, and for me, she is the best: she has a unique humor and commands the stage like no one else.
+            </p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/eurovision/image5.jpg" alt="We Will Rave, Eurovision 2024">
+                    <div class="copyright-overlay">
+                        Kaleen - "We Will Rave" (Austria)<br>
+                        <span class="photographer">© Alma Bengtsson / EBU</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/eurovision/image6.jpg" alt="Alcazar, Eurovision 2024">
+                    <div class="copyright-overlay">
+                        Alcazar - "Crying at the Discoteque"<br>
+                        <span class="photographer">© Sarah Louise Bennett / EBU</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/eurovision/image7.jpg" alt="Malin Åkerman and Petra Mede, Eurovision 2024">
+                    <div class="copyright-overlay">
+                        Petra Mede & Malin Åkerman (Hosts)<br>
+                        <span class="photographer">© Alma Bengtsson / EBU</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+    </main>
+
+</body>
+</html>

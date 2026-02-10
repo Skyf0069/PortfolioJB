@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatique & Réseau - Jonathan Balbas</title>
+    
+    <!-- Feuille de style externe pour le thème (effets visuels, animations) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ===== GALERIE D'IMAGES RESPONSIVE ===== */
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            background: #000;
+            border: 2px solid var(--euro-blue);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover { 
+            transform: scale(1.05); 
+            border-color: var(--euro-gold); 
+            box-shadow: 0 0 20px var(--euro-gold); 
+        }
+        
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        /* ===== SYSTÈME DE CRÉDITS PHOTO (OVERLAY) ===== */
+
+        .gallery-item {
+            position: relative; 
+        }
+
+        .copyright-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8); 
+            color: #fff;
+            font-size: 0.7rem; 
+            padding: 8px;
+            text-align: center;
+            line-height: 1.4;
+            opacity: 0; 
+            transition: opacity 0.3s ease;
+        }
+
+        .photographer {
+            color: #aaa;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        .gallery-item:hover .copyright-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== ÉLÉMENTS DÉCORATIFS THÈME "SCÈNE DE CONCERT" ===== -->
+    
+    <!-- 1. SOL ANIMÉ DE SCÈNE
+         Crée un effet de plancher qui se déplace ou pulse (animation définie dans style.css) -->
+    <div class="stage-floor"></div>
+    
+    <!-- 2. PARTICULES FLOTTANTES
+         Conteneur pour des particules animées en arrière-plan (effet visuel atmosphérique) -->
+    <div class="particles"></div>
+
+    <!-- 3. FAISCEAUX LUMINEUX
+         Conteneur pour plusieurs rayons de lumière type projecteurs de scène -->
+    <div class="beam-container">
+        <!-- Chaque div.beam crée un faisceau lumineux individuel
+             Leurs animations (rotation, couleur, opacité) sont gérées par style.css -->
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+    </div>
+
+    <!-- ===== EN-TÊTE DE LA PAGE ===== -->
+    <header>
+        <div class="nom">PASSIONS - Informatique & Réseau</div>
+        
+        <!-- Bouton de retour avec flèche Unicode
+             href="../hobbies.html" : remonte d'un niveau dans l'arborescence (../) puis accède à hobbies.html
+             Navigation relative : permet de revenir à la page portail des passions -->
+        <a href="../hobbies.html" class="back-btn">← Retour au Portail</a>
+    </header>
+
+    <main>
+        
+        <!-- ===== TITRE PRINCIPAL ===== -->
+        <h1>
+            I&R
+        </h1>
+
+        <!-- ===== CARTE DE PRÉSENTATION AVEC EFFET VERRE ===== -->
+        <!-- glass-card : effet glassmorphism (défini dans style.css externe) -->
+        <div class="glass-card">
+            <p>
+                Pour moi, l'informatique, ce n'est pas juste rester derrière un écran à taper du code. C'est avant tout une envie de comprendre comment le monde numérique fonctionne. Depuis petit, j'ai toujours eu besoin de démonter les choses pour voir ce qu'il y avait dedans.
+            </p>
+            <p>
+                C'est aussi ce qui m'a poussé à créer Skynium : j'adore ce moment où je réussis à réparer un problème qui bloquait quelqu'un. J'aime rendre la technologie simple et utile pour les autres.
+            </p>
+            <p>
+                Et pour mon plaisir personnel, je m'amuse à construire des réseaux, héberger mes propres serveurs ou bidouiller sur Linux. C'est comme un jeu de construction infini où il y a toujours quelque chose de nouveau à apprendre.
+            </p>
+        </div>
+
+        <!-- ===== GALERIE D'IMAGES AVEC CRÉDITS AU SURVOL ===== -->
+        <div class="gallery">
+                <!-- Chaque item contient une image et son overlay de crédits -->
+                <div class="gallery-item">
+                    <img src="images/i&r/make.jpeg" alt="Automatisation récupération formulaire via skynium.fr">
+                    <div class="copyright-overlay">
+                        Make Automatisation<br>
+                        <span class="photographer">© Skynium, © Make </span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/i&r/etna.jpeg" alt="Page de l'ETNA">
+                    <div class="copyright-overlay">
+                        L'ETNA, espace des administrateurs<br>
+                        <span class="photographer">© Skynium</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/i&r/login.jpeg" alt="Page de connexion à Skynium ETNA via Infomaniak">
+                    <div class="copyright-overlay">
+                        Page de connexion à Skynium ETNA via Infomaniak, le cloud éthique.<br>
+                        <span class="photographer">© Skynium, © Infomaniak</span>
+                    </div>
+                </div>
+            
+        </div>
+
+    </main>
+
+</body>
+</html>

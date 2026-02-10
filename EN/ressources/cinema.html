@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Directing & Music - Jonathan Balbas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --euro-blue: #1D0469;
+            --euro-pink: #FA5DFF;
+            --euro-gold: #FFD700;
+            --beam-color: rgba(255, 255, 255, 0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .beam-container {
+            position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
+            width: 100vw; height: 100vh; z-index: -1; pointer-events: none;
+        }
+
+        .beam {
+            position: absolute; top: 0; width: 50px; height: 150vh;
+            background: linear-gradient(to bottom, var(--beam-color), transparent 80%);
+            transform-origin: top center; filter: blur(15px); opacity: 0.6; mix-blend-mode: overlay;
+        }
+
+        .beam:nth-child(1) { left: 10%; animation: sweep 8s infinite alternate; background: linear-gradient(to bottom, var(--euro-pink), transparent); }
+        .beam:nth-child(3) { left: 50%; animation: sweep 6s infinite alternate-reverse; background: linear-gradient(to bottom, var(--euro-gold), transparent); opacity: 0.8; }
+        .beam:nth-child(5) { left: 90%; animation: sweep 9s infinite alternate-reverse; background: linear-gradient(to bottom, var(--euro-blue), transparent); }
+
+        @keyframes sweep { 0% { transform: rotate(-25deg); opacity: 0.3; } 100% { transform: rotate(25deg); opacity: 0.7; } }
+        @keyframes pulseLight { 0%, 100% { opacity: 0.5; height: 120vh; } 50% { opacity: 1; height: 160vh; width: 120px; } }
+
+        .particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;
+            background-image: radial-gradient(white 1px, transparent 1px), radial-gradient(#FA5DFF 1px, transparent 1px);
+            background-size: 50px 50px; opacity: 0.3; animation: particleRain 10s linear infinite;
+        }
+
+        @keyframes particleRain { from { background-position: 0 0; } to { background-position: 0 500px; } }
+       
+        .glass-card {
+            background: rgba(20, 20, 40, 0.6); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2); padding: 40px; border-radius: 20px;
+            margin-top: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: left;
+        }
+        strong { color: var(--euro-pink); }
+
+        .gallery {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; margin-top: 40px;
+        }
+        .gallery-item {
+            height: 200px; background: #000;
+            border: 2px solid var(--euro-blue); border-radius: 10px;
+            overflow: hidden; position: relative; transition: transform 0.3s;
+        }
+        .gallery-item:hover { transform: scale(1.05); border-color: var(--euro-gold); box-shadow: 0 0 20px var(--euro-gold); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        .copyright-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.8); color: #fff;
+            font-size: 0.7rem; padding: 8px; text-align: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .copyright-overlay { opacity: 1; }
+        .photographer { color: #aaa; font-size: 0.6rem; text-transform: uppercase; }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="particles"></div>
+    <div class="beam-container">
+        <div class="beam"></div><div class="beam"></div><div class="beam"></div><div class="beam"></div><div class="beam"></div>
+    </div>
+
+    <header>
+        <div class="nom">HOBBIES - Video & Sound Creation</div>
+        <a href="../hobbies.html" class="back-btn">← Return to Portal</a>
+    </header>
+
+    <main>
+        
+        <h1>Audiovisual Universe</h1>
+
+
+            <p>
+                Audiovisual production is a field that has fascinated me for a long time. Through my personal project, <strong>Above The Sky Productions</strong>, I design and direct a wide variety of videos. My approach is not driven by the search for fame, but by the desire to create qualitative content, often intended for a private or experimental setting. I appreciate the entire creative process: from shooting to post-production. I pay particular attention to editing to ensure a clean, fluid, and aesthetic final result. The satisfaction of achieving a polished project after hours of work is my main motivation.
+            </p>
+            <p>
+                At the same time, music occupies a central place in my daily life. It accompanies me both in my studies and during my travels. This active and constant listening naturally gave me the desire to go behind the scenes and understand the structure of the tracks.
+            </p>
+            <p>
+                It is with this in mind that I launched the <strong>Above The Sky Records</strong> initiative. When a track inspires me, I like to revisit it by modifying its rhythm or atmosphere. I thus create remixes of my favorite tracks using Computer-Assisted Music (MAO). This sound exploration, although self-taught, is very enriching. Moreover, it creates a real synergy with video, as it has allowed me to perfect my sense of rhythm and my management of sound editing.
+            </p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/ats/image2.png" alt="Editing Interface">
+                    <div class="copyright-overlay">
+                        Editing Timeline<br>
+                        <span class="photographer">© Above The Sky Productions</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/music/logic.png" alt="Audio Session">
+                    <div class="copyright-overlay">
+                        Audio Remix Session<br>
+                        <span class="photographer">© Above The Sky Records</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/music/image1.jpeg" alt="Camera">
+                    <div class="copyright-overlay">
+                        Minutes of music listened to per month<br>
+                        <span class="photographer">© Skynium / © Notion / © Arc  </span>
+                    </div>
+                </div>
+
+
+        </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

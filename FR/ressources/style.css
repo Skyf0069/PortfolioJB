@@ -1,0 +1,478 @@
+/* ===== CONFIGURATION GÉNÉRALE & VARIABLES CSS ===== */
+
+/* :root : pseudo-classe qui cible l'élément racine <html>
+   Permet de définir des variables CSS globales accessibles partout */
+:root {
+    /* Variables CSS personnalisées (Custom Properties)
+       Syntaxe : --nom-variable: valeur;
+       Avantages : réutilisabilité, maintenance facilitée, changements centralisés */
+    --bg-color: #f8f9fb;       /* Blanc légèrement cassé pour le fond */
+    --primary: #1D0469;        /* Violet dominant (identité visuelle) */
+    --secondary: #FA5DFF;      /* Rose/Magenta (CTA, liens interactifs) */
+    --tertiary: #FF8A3F;       /* Orange (accents, highlights) */
+    --text-dark: #333333;      /* Gris foncé pour texte lisible */
+    --shadow: 0 4px 15px rgba(29, 4, 105, 0.1); /* Ombre douce teintée violet */
+}
+
+/* ===== RESET CSS UNIVERSEL ===== */
+
+* {
+    /* box-sizing: border-box : inclut padding et border dans width/height
+       Facilite le calcul des dimensions et évite les débordements */
+    box-sizing: border-box;
+    
+    /* Supprime toutes les marges/paddings par défaut du navigateur
+       Permet un contrôle total sur l'espacement */
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== STYLES DU BODY ===== */
+
+body {
+    /* Stack de polices : utilise la première disponible dans la liste
+       Segoe UI (Windows), Roboto (Android), puis fallbacks universels */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    
+    background-color: var(--bg-color); 
+    color: var(--text-dark);
+    
+    /* line-height: 1.6 : espacement vertical entre les lignes (160% de la taille de police)
+       Améliore la lisibilité du texte */
+    line-height: 1.6;
+    
+    /* min-height: 100vh : hauteur minimale = 100% de la hauteur du viewport
+       Garantit que le body remplit toujours l'écran entier */
+    min-height: 100vh;
+    
+    position: relative; 
+    
+    /* overflow-x: hidden : cache tout débordement horizontal
+       Empêche la scrollbar horizontale (important pour les animations) */
+    overflow-x: hidden;
+}
+
+/* ===== BULLE LIQUIDE DÉCORATIVE (PSEUDO-ÉLÉMENT) ===== */
+
+/* ::before : crée un élément virtuel AVANT le contenu du body
+   Utilisé ici pour créer un effet de fond animé sans ajouter de HTML */
+body::before {
+    content: ""; /* Obligatoire pour afficher le pseudo-élément */
+    
+    /* position: fixed : reste fixe même en scrollant
+       Ne bouge pas avec le contenu de la page */
+    position: fixed;
+    
+    /* Positionnement : déborde volontairement en bas à droite
+       -15% : dépasse de 15% pour un effet "coupé par le bord" */
+    bottom: -15%;
+    right: -15%;
+    
+    /* Dimensions basées sur la hauteur du viewport (vh)
+       S'adapte à la taille de l'écran tout en restant proportionnel */
+    width: 70vh;
+    height: 70vh;
+    
+    /* Limites maximales pour éviter une bulle trop grande sur grands écrans */
+    max-width: 700px;
+    max-height: 700px;
+    
+    /* ===== SYSTÈME DE COULEURS COMPLEXE (2 COUCHES) ===== */
+    
+    /* COUCHE 1 : Dégradé radial (circulaire depuis le centre)
+       Crée une transition douce orange → rose → violet */
+    background: radial-gradient(
+        circle at center,
+        var(--tertiary),  /* Orange au centre (point chaud) */
+        var(--secondary), /* Rose au milieu (transition) */
+        var(--primary)    /* Violet sur les bords (ambiance) */
+    );
+    
+    /* COUCHE 2 : Dégradé linéaire diagonal (45deg)
+       Se superpose avec la couche 1 pour complexifier le mélange */
+    background-image: linear-gradient(
+        45deg, 
+        var(--primary) 0%, 
+        var(--secondary) 50%, 
+        var(--tertiary) 100%
+    );
+    
+    /* background-size: 200% 200% : fond 2x plus grand que le conteneur
+       Nécessaire pour l'animation colorShift (permet de déplacer le fond) */
+    background-size: 200% 200%;
+    
+    /* background-blend-mode: overlay : mode de fusion entre les 2 couches
+       Mélange les couleurs de façon artistique (comme dans Photoshop) */
+    background-blend-mode: overlay;
+    
+    /* filter: blur(70px) : flou gaussien très prononcé
+       Transforme la bulle nette en effet lumineux diffus et organique */
+    filter: blur(70px);
+    
+    opacity: 0.7; /* 70% d'opacité : visible mais pas envahissant */
+    
+    z-index: -1; /* Derrière tout le contenu */
+    
+    /* ===== TRIPLE ANIMATION POUR EFFET ORGANIQUE ===== */
+    /* Combine 3 animations avec des durées DIFFÉRENTES (13s, 17s, 23s)
+       Les cycles ne se synchronisent jamais → mouvement imprévisible et naturel
+       infinite : boucle à l'infini
+       alternate : fait des allers-retours (0→100% puis 100→0%) */
+    animation: 
+        liquidMorph 13s ease-in-out infinite alternate,  /* Déforme la forme */
+        colorShift 17s ease infinite,                     /* Déplace les couleurs */
+        gentleFloat 23s ease-in-out infinite;             /* Déplace la position */
+}
+
+/* ===== EN-TÊTE (HEADER) ===== */
+
+header {
+    /* rgba avec faible transparence : laisse légèrement passer le fond
+       Effet moderne et léger */
+    background-color: rgba(255, 255, 255, 0.95);
+    
+    /* backdrop-filter: blur(5px) : floute ce qui est derrière le header
+       Effet "verre dépoli" (glassmorphism) très moderne
+       ATTENTION : ne fonctionne pas sur tous les navigateurs (IE, Firefox ancien) */
+    backdrop-filter: blur(5px);
+    
+    padding: 1rem 5%; /* 1rem vertical, 5% horizontal (responsive) */
+    
+    /* Flexbox pour aligner logo et menu horizontalement */
+    display: flex;
+    justify-content: space-between; /* Logo à gauche, menu à droite */
+    align-items: center; /* Centrage vertical */
+    
+    box-shadow: var(--shadow);
+    
+    /* position: sticky : reste en haut lors du scroll
+       Différent de fixed : scroll normalement puis "se colle" à top: 0 */
+    position: sticky;
+    top: 0; /* Distance de collage : 0px du haut */
+    
+    z-index: 1000; /* Au-dessus de tout le contenu */
+}
+
+/* ===== BLOC IDENTITÉ (LOGO + NOM) ===== */
+
+.identite {
+    display: flex;
+    flex-direction: column; /* Empile logo et nom verticalement */
+    align-items: center;
+    text-align: center;
+}
+
+.identite img {
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.identite img:hover {
+    transform: scale(1.05); /* Agrandit de 5% au survol */
+}
+
+.nom {
+    font-weight: 700; /* Extra-gras */
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-top: 8px;
+    
+    /* letter-spacing: 0.5px : espace entre chaque lettre
+       Donne un aspect plus aéré et professionnel */
+    letter-spacing: 0.5px;
+    
+    text-transform: uppercase; /* Tout en majuscules */
+}
+
+/* ===== MENU DE NAVIGATION ===== */
+
+nav ul {
+    list-style: none; /* Supprime les puces par défaut */
+    display: flex; /* Aligne les items horizontalement */
+    gap: 20px; /* Espace entre chaque item */
+}
+
+nav ul li a {
+    text-decoration: none; /* Enlève le soulignement */
+    color: var(--primary);
+    font-weight: 600; /* Semi-gras */
+    padding: 10px 20px;
+    
+    /* border transparent par défaut : prépare l'animation au hover
+       Évite un "saut" visuel quand la bordure apparaît */
+    border: 2px solid transparent;
+    
+    border-radius: 30px; /* Boutons en forme de pilule */
+    
+    /* all : anime TOUTES les propriétés qui changent
+       ease-in-out : accélération/décélération douce */
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary); /* Fond rose */
+    color: #ffffff; /* Texte blanc */
+    
+    /* box-shadow rose : crée une lueur colorée autour du bouton */
+    box-shadow: 0 4px 10px rgba(250, 93, 255, 0.3);
+    
+    /* translateY(-2px) : soulève légèrement le bouton
+       Effet de "pressage inversé" moderne */
+    transform: translateY(-2px);
+}
+
+/* ===== CONTENU PRINCIPAL ===== */
+
+main {
+    max-width: 1000px; /* Limite la largeur pour la lisibilité */
+    margin: 60px auto; /* 60px haut/bas, auto = centrage horizontal */
+    padding: 0 20px; /* Espacement latéral sur petits écrans */
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 3rem; /* 3 fois la taille de base (généralement 48px) */
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--tertiary);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-weight: 500; /* Poids moyen (entre normal et gras) */
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555; /* Gris moyen pour le corps de texte */
+    max-width: 800px; /* Limite pour une lecture confortable */
+}
+
+/* ===== SECTION PROJETS (LAYOUT 2 COLONNES) ===== */
+
+.projet-layout {
+    display: flex;
+    align-items: flex-start; /* Aligne en haut (pas au centre) */
+    gap: 40px; /* Espace entre texte et carrousel */
+    margin-top: 20px;
+}
+
+.projet-texte {
+    flex: 1; /* Prend tout l'espace disponible */
+    min-width: 300px; /* Largeur minimale avant wrap */
+}
+
+/* ===== MEDIA QUERY : RESPONSIVE MOBILE ===== */
+
+/* @media : règles CSS conditionnelles selon la taille d'écran
+   max-width: 768px : s'applique UNIQUEMENT si largeur ≤ 768px (tablettes/mobiles) */
+@media (max-width: 768px) {
+    .projet-layout {
+        /* flex-direction: column : passe de horizontal à vertical
+           Empile le texte et le carrousel sur mobile */
+        flex-direction: column;
+    }
+    .carousel-container {
+        /* !important : force ce style même si un autre style plus spécifique existe
+           À utiliser avec parcimonie (ici justifié pour le responsive) */
+        width: 100% !important;
+    }
+}
+
+/* ===== CARROUSEL (STYLE & ANIMATION) ===== */
+
+.carousel-container {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden; /* Cache les débordements (coins arrondis) */
+    box-shadow: var(--shadow);
+    background-color: white;
+}
+
+.carousel-slides {
+    display: flex; /* Aligne les slides horizontalement */
+    overflow-x: auto; /* Permet le scroll horizontal */
+    
+    /* scroll-snap-type: x mandatory : magnétisme horizontal
+       Force l'arrêt sur chaque slide (pas entre deux) */
+    scroll-snap-type: x mandatory;
+    
+    scroll-behavior: smooth; /* Scroll animé (pas instantané) */
+    
+    /* Masque la scrollbar sur Firefox */
+    scrollbar-width: none;
+}
+
+/* Masque la scrollbar sur Chrome/Safari/Edge */
+.carousel-slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    min-width: 100%; /* Chaque slide = 100% de la largeur du conteneur */
+    position: relative;
+    
+    /* scroll-snap-align: start : point d'accrochage au début de chaque slide
+       Définit où le scroll "s'arrête" automatiquement */
+    scroll-snap-align: start;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit l'espace en gardant les proportions */
+    display: block; /* Enlève l'espace blanc sous l'image */
+}
+
+/* ===== DESCRIPTION SUR L'IMAGE (OVERLAY) ===== */
+
+.slide-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 15px 10px 15px;
+    
+    /* linear-gradient vertical : dégradé de bas en haut
+       Violet opaque en bas → transparent en haut
+       Permet de lire le texte blanc sur n'importe quelle image */
+    background: linear-gradient(to top, var(--primary) 0%, rgba(29, 4, 105, 0) 100%);
+    
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+    /* État initial : invisible et décalé vers le bas */
+    opacity: 0;
+    transform: translateY(10px);
+    
+    /* all : anime opacity ET transform ensemble */
+    transition: all 0.3s ease;
+}
+
+/* Animation d'apparition au survol du conteneur parent */
+.carousel-container:hover .slide-desc {
+    opacity: 1; /* Devient visible */
+    transform: translateY(0); /* Remonte à sa position normale */
+}
+
+/* ===== ANIMATIONS @KEYFRAMES ===== */
+
+/* 1. DÉFORME LA BULLE COMME UN LIQUIDE */
+/* border-radius avec 8 valeurs : contrôle très précis de la forme
+   Syntaxe : horizontal-tl tr br bl / vertical-tl tr br bl
+   (tl=top-left, tr=top-right, br=bottom-right, bl=bottom-left) */
+@keyframes liquidMorph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    33% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    66% {
+        border-radius: 70% 30% 50% 50% / 30% 40% 60% 70%;
+    }
+    100% {
+        /* Revient à la forme initiale pour une boucle fluide */
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* 2. FAIT BOUGER LES COULEURS DU FOND */
+/* Anime background-position pour déplacer le dégradé
+   Crée l'illusion que les couleurs "bougent" à l'intérieur de la bulle */
+@keyframes colorShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        /* Revient au début pour une boucle parfaite */
+        background-position: 0% 50%;
+    }
+}
+
+/* 3. FAIT FLOTTER LA BULLE (POSITION + ROTATION) */
+/* Combine translate (déplacement) et rotate (rotation)
+   Crée un mouvement organique et naturel */
+@keyframes gentleFloat {
+    0% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    25% { 
+        transform: translate(-20px, 15px) rotate(5deg); 
+    }
+    50% { 
+        transform: translate(10px, -10px) rotate(-3deg); 
+    }
+    75% { 
+        transform: translate(-15px, -25px) rotate(2deg); 
+    }
+    100% { 
+        /* Revient à la position initiale */
+        transform: translate(0, 0) rotate(0deg); 
+    }
+}
+
+/* ===== SÉLECTEUR DE LANGUE ===== */
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre les drapeaux */
+    margin-left: 20px;
+    padding-left: 20px;
+    
+    /* Bordure gauche subtile pour séparer visuellement du menu */
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.lang-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Transforme le carré en cercle */
+    overflow: hidden; /* Cache les coins de l'image pour un cercle parfait */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.7; /* Semi-transparent par défaut (inactif) */
+}
+
+.lang-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit le cercle sans déformation */
+    display: block;
+}
+
+.lang-btn:hover {
+    transform: scale(1.2); /* Agrandit de 20% */
+    opacity: 1; /* Opacité complète */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Classe pour la langue actuellement active */
+.lang-btn.active {
+    opacity: 1; /* Toujours visible */
+    border: 2px solid white; /* Cercle blanc autour */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* ===== RESPONSIVE : AJUSTEMENTS MOBILES ===== */
+
+@media (max-width: 768px) {
+    .lang-switch {
+        /* Sur mobile : supprime la bordure et réduit les marges */
+        border-left: none;
+        margin-left: 10px;
+        padding-left: 0;
+        gap: 10px;
+    }
+}

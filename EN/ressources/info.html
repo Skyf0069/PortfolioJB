@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT & Networking - Jonathan Balbas</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .gallery-item {
+            height: 200px;
+            background: #000;
+            border: 2px solid var(--euro-blue);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover { transform: scale(1.05); border-color: var(--euro-gold); box-shadow: 0 0 20px var(--euro-gold); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- STYLE DES CRÉDITS PHOTOS --- */
+
+        .gallery-item {
+            /* Important : permet de positionner le texte par rapport à l'image */
+            position: relative; 
+        }
+
+        .copyright-overlay {
+            position: absolute; /* Se place par dessus l'image */
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            
+            /* Fond noir semi-transparent pour lire le texte */
+            background: rgba(0, 0, 0, 0.8); 
+            
+            /* Texte petit et discret */
+            color: #fff;
+            font-size: 0.7rem; 
+            padding: 8px;
+            text-align: center;
+            line-height: 1.4;
+            
+            /* Optionnel : On le cache et on le montre au survol ? */
+            /* Si tu veux qu'il soit toujours visible, retire les 3 lignes ci-dessous */
+            opacity: 0; 
+            transition: opacity 0.3s ease;
+        }
+
+        .photographer {
+            color: #aaa; /* Le nom du photographe en gris un peu plus sombre */
+            font-size: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        /* Quand on passe la souris sur l'image, le texte apparaît */
+        .gallery-item:hover .copyright-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stage-floor"></div>
+    
+    <div class="particles"></div>
+
+    <div class="beam-container">
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div> <div class="beam"></div>
+        <div class="beam"></div>
+    </div>
+
+    <header>
+        <div class="nom">HOBBIES - IT & Networking</div>
+        <a href="../hobbies.html" class="back-btn">← Return to Portal</a>
+    </header>
+
+    <main>
+        
+        <h1>
+            IT & Networking
+        </h1>
+
+        <div class="glass-card">
+            <p>
+                For me, IT is not just about staying behind a screen typing code. It is above all a desire to understand how the digital world works. Since I was little, I have always needed to take things apart to see what was inside.
+            </p>
+            <p>
+                This is also what drove me to create Skynium: I love that moment when I manage to fix a problem that was blocking someone. I love making technology simple and useful for others.
+            </p>
+            <p>
+                And for my personal pleasure, I have fun building networks, hosting my own servers, or tinkering with Linux. It's like an infinite construction set where there is always something new to learn.
+            </p>
+        </div>
+
+        <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/i&r/make.jpeg" alt="Form retrieval automation via skynium.fr">
+                    <div class="copyright-overlay">
+                        Make Automation<br>
+                        <span class="photographer">© Skynium, © Make </span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/i&r/etna.jpeg" alt="ETNA Page">
+                    <div class="copyright-overlay">
+                        ETNA, administrator area<br>
+                        <span class="photographer">© Skynium</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/i&r/login.jpeg" alt="Skynium ETNA login page via Infomaniak">
+                    <div class="copyright-overlay">
+                        Skynium ETNA login page via Infomaniak, the ethical cloud.<br>
+                        <span class="photographer">© Skynium, © Infomaniak</span>
+                    </div>
+                </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

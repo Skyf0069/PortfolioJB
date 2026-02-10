@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisation Vidéo & Musique - Jonathan Balbas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== VARIABLES CSS PERSONNALISÉES (CUSTOM PROPERTIES) ===== */
+        /* :root : pseudo-classe qui cible l'élément racine (<html>)
+           Les variables définies ici sont accessibles dans tout le document
+           Syntaxe : --nom-variable: valeur */
+        :root {
+            --euro-blue: #1D0469;   /* Violet foncé */
+            --euro-pink: #FA5DFF;   /* Rose néon */
+            --euro-gold: #FFD700;   /* Or/jaune */
+            --beam-color: rgba(255, 255, 255, 0.4); /* Blanc semi-transparent pour faisceaux */
+        }
+
+        /* ===== RESET CSS UNIVERSEL ===== */
+        /* * : sélecteur universel qui cible TOUS les éléments HTML
+           box-sizing: border-box : inclut padding et border dans la largeur/hauteur totale
+           margin: 0; padding: 0 : supprime tous les espaces par défaut du navigateur */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* ===== CONTENEUR DES FAISCEAUX LUMINEUX ===== */
+        
+        .beam-container {
+            /* position: fixed : reste fixe même en scrollant (ne bouge pas avec la page) */
+            position: fixed;
+            
+            /* top: -20% : décalé de 20% vers le haut (pour que les faisceaux partent d'en haut) */
+            top: -20%;
+            
+            /* left: 50% + transform: translateX(-50%) : technique de centrage horizontal
+               left: 50% place le bord gauche au centre
+               translateX(-50%) décale de la moitié de sa propre largeur vers la gauche
+               Résultat : parfaitement centré */
+            left: 50%;
+            transform: translateX(-50%);
+            
+            /* 100vw et 100vh : 100% de la largeur/hauteur du viewport (fenêtre visible)
+               vw = viewport width, vh = viewport height */
+            width: 100vw;
+            height: 100vh;
+            
+            /* z-index: -1 : place l'élément derrière tout le contenu (arrière-plan) */
+            z-index: -1;
+            
+            /* pointer-events: none : l'élément ne réagit pas aux interactions souris/tactile
+               Permet de cliquer "à travers" l'élément sur le contenu en dessous */
+            pointer-events: none;
+        }
+
+        .beam {
+            position: absolute;
+            top: 0;
+            width: 50px;
+            
+            /* 150vh : hauteur = 150% de la hauteur du viewport (dépasse l'écran) */
+            height: 150vh;
+            
+            /* linear-gradient : dégradé du haut vers le bas
+               var(--beam-color) : utilise la variable CSS définie dans :root
+               transparent 80% : devient transparent à 80% de la hauteur */
+            background: linear-gradient(to bottom, var(--beam-color), transparent 80%);
+            
+            /* transform-origin: top center : point d'origine des transformations (rotation) au centre-haut
+               Important pour que les faisceaux pivotent depuis le haut */
+            transform-origin: top center;
+            
+            /* filter: blur(15px) : applique un flou gaussien de 15px
+               Crée l'effet de "lumière diffuse" */
+            filter: blur(15px);
+            
+            opacity: 0.6;
+            
+            /* mix-blend-mode: overlay : mode de fusion avec les éléments en dessous
+               Crée des effets de lumière réalistes en mélangeant les couleurs */
+            mix-blend-mode: overlay;
+        }
+
+        /* ===== STYLES SPÉCIFIQUES POUR CHAQUE FAISCEAU ===== */
+        /* :nth-child(n) : cible le n-ième enfant d'un parent
+           Permet de styliser chaque faisceau différemment */
+
+        .beam:nth-child(1) { 
+            left: 10%; /* Position horizontale */
+            
+            /* animation : nom durée infinite alternate
+               sweep : nom de l'animation définie avec @keyframes
+               8s : durée d'un cycle complet
+               infinite : se répète à l'infini
+               alternate : fait l'aller-retour (0→100% puis 100→0%) */
+            animation: sweep 8s infinite alternate;
+            
+            /* Dégradé rose pour ce faisceau spécifique */
+            background: linear-gradient(to bottom, var(--euro-pink), transparent);
+        }
+        
+        .beam:nth-child(3) { 
+            left: 50%;
+            
+            /* alternate-reverse : commence par la fin de l'animation (100→0% puis 0→100%) */
+            animation: sweep 6s infinite alternate-reverse;
+            
+            /* Dégradé or/jaune */
+            background: linear-gradient(to bottom, var(--euro-gold), transparent);
+            opacity: 0.8;
+        }
+        
+        .beam:nth-child(5) { 
+            left: 90%;
+            animation: sweep 9s infinite alternate-reverse;
+            
+            /* Dégradé bleu/violet */
+            background: linear-gradient(to bottom, var(--euro-blue), transparent);
+        }
+
+        /* ===== ANIMATIONS @KEYFRAMES ===== */
+        /* @keyframes : définit les étapes d'une animation
+           Syntaxe : @keyframes nom { étape% { propriétés } } */
+
+        @keyframes sweep { 
+            /* 0% : état initial de l'animation */
+            0% { 
+                transform: rotate(-25deg); /* Rotation de -25° (gauche) */
+                opacity: 0.3; 
+            }
+            
+            /* 100% : état final de l'animation */
+            100% { 
+                transform: rotate(25deg); /* Rotation de +25° (droite) */
+                opacity: 0.7; 
+            }
+            /* L'animation fait donc osciller le faisceau de -25° à +25° */
+        }
+        
+        @keyframes pulseLight { 
+            /* 0%, 100% : même style au début et à la fin (boucle fluide) */
+            0%, 100% { 
+                opacity: 0.5; 
+                height: 120vh; 
+            }
+            
+            /* 50% : pic d'intensité au milieu de l'animation */
+            50% { 
+                opacity: 1; 
+                height: 160vh; 
+                width: 120px; 
+            }
+        }
+
+        /* ===== PARTICULES ANIMÉES ===== */
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            
+            /* background-image avec plusieurs radial-gradient : crée des points
+               radial-gradient(white 1px, transparent 1px) : petit point blanc de 1px
+               Deux gradients = deux couches de points superposées */
+            background-image: 
+                radial-gradient(white 1px, transparent 1px), 
+                radial-gradient(#FA5DFF 1px, transparent 1px);
+            
+            /* background-size : espacement entre les points (grille de 50x50px) */
+            background-size: 50px 50px;
+            
+            opacity: 0.3;
+            animation: particleRain 10s linear infinite;
+        }
+
+        @keyframes particleRain { 
+            /* from / to : syntaxe alternative à 0% / 100% */
+            from { 
+                background-position: 0 0; 
+            }
+            to { 
+                /* Décale le fond de 500px vers le bas : crée l'effet de "pluie" de particules */
+                background-position: 0 500px; 
+            }
+        }
+       
+        /* ===== CARTE AVEC EFFET VERRE (GLASSMORPHISM) ===== */
+        
+        .glass-card {
+            /* rgba(20, 20, 40, 0.6) : bleu très foncé avec 60% d'opacité */
+            background: rgba(20, 20, 40, 0.6);
+            
+            /* backdrop-filter: blur(10px) : floute tout ce qui est derrière
+               Crée l'effet "verre dépoli" moderne */
+            backdrop-filter: blur(10px);
+            
+            /* Bordure blanche semi-transparente pour renforcer l'effet verre */
+            border: 1px solid rgba(255,255,255,0.2);
+            
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: left;
+        }
+        
+        /* Colore les mots en gras avec la couleur rose */
+        strong { 
+            color: var(--euro-pink); 
+        }
+
+        /* ===== GALERIE D'IMAGES ===== */
+        /* (Styles déjà expliqués précédemment) */
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            background: #000;
+            border: 2px solid var(--euro-blue);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover { 
+            transform: scale(1.05); 
+            border-color: var(--euro-gold); 
+            box-shadow: 0 0 20px var(--euro-gold); 
+        }
+        
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        /* Overlay de crédits photo */
+        .copyright-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 8px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .copyright-overlay { 
+            opacity: 1; 
+        }
+        
+        .photographer { 
+            color: #aaa; 
+            font-size: 0.6rem; 
+            text-transform: uppercase; 
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) { 
+            h1 { 
+                font-size: 2.5rem; 
+            } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== ANIMATIONS D'ARRIÈRE-PLAN ===== -->
+    
+    <!-- Particules animées (effet "pluie" de points) -->
+    <div class="particles"></div>
+    
+    <!-- Conteneur des faisceaux lumineux avec 5 beams -->
+    <div class="beam-container">
+        <!-- Écriture condensée : plusieurs div.beam sur une ligne pour gagner de l'espace -->
+        <div class="beam"></div><div class="beam"></div><div class="beam"></div><div class="beam"></div><div class="beam"></div>
+    </div>
+
+    <header>
+        <div class="nom">PASSIONS - Création Vidéo & Son</div>
+        <a href="../hobbies.html" class="back-btn">← Retour au Portail</a>
+    </header>
+
+    <main>
+        
+        <h1>Univers Audiovisuel</h1>
+        
+        <p>
+            La production audiovisuelle est un domaine qui me passionne depuis longtemps. À travers mon projet personnel, <strong>Above The Sky Productions</strong>, je conçois et réalise une grande variété de vidéos. Ma démarche n'est pas guidée par la recherche de notoriété, mais par la volonté de créer des contenus qualitatifs, souvent destinés à un cadre privé ou expérimental. J'apprécie l'intégralité du processus créatif : de la prise de vue à la post-production. Je porte une attention particulière au montage pour garantir un rendu final propre, fluide et esthétique. La satisfaction d'aboutir à un projet abouti après des heures de travail est ma principale motivation.
+        </p>
+        <p>
+            En parallèle, la musique occupe une place centrale dans mon quotidien. Elle m'accompagne aussi bien dans mes études que lors de mes déplacements. Cette écoute active et constante m'a naturellement donné l'envie de passer de l'autre côté du décor et de comprendre la structure des morceaux.
+        </p>
+        <p>
+            C'est dans cette optique que j'ai lancé l'initiative <strong>Above The Sky Records</strong>. Lorsqu'un titre m'inspire, j'aime le revisiter en modifiant son rythme ou son atmosphère. Je réalise ainsi des remix de mes morceaux favoris par MAO (Musique Assistée par Ordinateur). Cette exploration sonore, bien qu'autodidacte, est très enrichissante. Elle crée d'ailleurs une véritable synergie avec la vidéo, car elle m'a permis de perfectionner mon sens du rythme et ma gestion du montage sonore.
+        </p>
+        
+        <!-- ===== GALERIE D'IMAGES ===== -->
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/ats/image2.png" alt="Interface de Montage">
+                <div class="copyright-overlay">
+                    Timeline de Montage<br>
+                    <span class="photographer">© Above The Sky Productions</span>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/music/logic.png" alt="Session Audio">
+                <div class="copyright-overlay">
+                    Session de Remix Audio<br>
+                    <span class="photographer">© Above The Sky Records</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/music/image1.jpeg" alt="Caméra">
+                <div class="copyright-overlay">
+                    Nombre de minutes par mois de musique écoutées<br>
+                    <span class="photographer">© Skynium / © Notion / © Arc  </span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

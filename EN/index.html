@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALBAS Jonathan - HOME</title>
+    <link rel="stylesheet" href="ressources/style.css">
+
+    <link rel="icon" type="image/png" href="ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="ressources/favicon/site.webmanifest" />
+    <style>
+        .home-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .home-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(29, 4, 105, 0.1);
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .home-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(250, 93, 255, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: var(--tertiary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - HOME</div>
+        </div>
+
+    
+        <div style="display: flex; align-items: center;">
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="projets.html">Projects</a></li>
+                    <li><a href="labo.html">Personal Lab</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="lang-switch">
+                <a href="../FR/index.html" class="lang-btn" title="French">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <a href="index.html" class="lang-btn active" title="English">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-tagline">Entrepreneur & Digital Creator</div>
+            <h1>Technology serving Humanity.</h1>
+            <p style="max-width: 800px; margin: 20px auto; font-size: 1.2rem;">
+                Welcome to my universe. I am <strong>Jonathan BALBAS</strong>, founder of Skynium and a first-year student at IUT R&T Luminy. 
+                Passionate about IT and new technologies, I am dedicated to making the digital world accessible and understandable for everyone.
+            </p>
+        </section>
+
+        <div class="home-grid">
+
+            <a href="projets.html" class="home-card">
+                <div class="card-icon">🚀</div>
+                <div class="card-title">My Ambitions</div>
+                <div class="card-text">
+                    Discover <strong>Skynium</strong>, my service company, 
+                    as well as my architectural concepts like the <strong>Skynium Arena</strong>.
+                </div>
+            </a>
+
+            <a href="labo.html" class="home-card">
+                <div class="card-icon">🧪</div>
+                <div class="card-title">The Technical Lab</div>
+                <div class="card-text">
+                    Dive into my internal "Kitchen": SSO Infrastructure, 
+                    HomeAssistant Home Automation, and network experiments.
+                </div>
+            </a>
+
+            <a href="hobbies.html" class="home-card">
+                <div class="card-icon">✨</div>
+                <div class="card-title">My Inspirations</div>
+                <div class="card-text">
+                    The energy of Eurovision, the precision of the sound studio, 
+                    and the art of video production. Enter the multiverse.
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
