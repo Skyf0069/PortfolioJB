@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #cebdff;
+  --color-primary-container: #6945c7;
+  --color-on-primary-fixed: #21005e;
+  
+  --color-secondary: #cbc3dc;
+  --color-secondary-container: #4c465b;
+  
+  --color-tertiary: #f9adf9;
+  --color-tertiary-container: #87468a;
+  
+  --color-surface: #141218;
+  --color-surface-container: #211e25;
+  --color-surface-container-low: #1d1a21;
+  --color-surface-container-high: #2b292f;
+  --color-surface-container-highest: #36333a;
+  --color-surface-variant: #36333a;
+  
+  --color-on-surface: #e7e0e9;
+  --color-on-surface-variant: #cbc3d5;
+  
+  --color-outline-variant: #494453;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased selection:bg-primary/30;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(105, 69, 199, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(135, 70, 138, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-surface-variant/40 backdrop-blur-[40px] border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-surface-container-highest/40 backdrop-blur-[40px] border border-white/5;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #cebdff 0%, #6945c7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .orb {
+    @apply absolute rounded-full blur-[100px] -z-10 opacity-15 pointer-events-none;
+  }
+}
+
+/* Custom animations and effects */
+.magnetic-effect {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+}
+
+.magnetic-effect:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 40px 80px -15px rgba(80, 40, 174, 0.15);
+}
+
+.portal-image-container img {
+  transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portal-image-container:hover img {
+  transform: scale(1.08);
+}
+
+.timeline-line {
+  background: linear-gradient(to bottom, transparent, #cebdff 15%, #6945c7 85%, transparent);
+}
