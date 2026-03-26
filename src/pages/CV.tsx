@@ -201,9 +201,6 @@ export default function CV() {
               <a className="px-8 py-3 bg-gradient-to-br from-primary to-primary-container rounded-full text-on-primary-fixed font-bold hover:scale-105 transition-transform" href="mailto:skyniumjonathan@gmail.com">
                 Me contacter
               </a>
-              <button className="px-8 py-3 glass-card rounded-full text-on-surface font-bold hover:bg-white/10 transition-colors">
-                Télécharger le CV
-              </button>
             </div>
           </div>
         </div>

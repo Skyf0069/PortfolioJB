@@ -53,7 +53,7 @@ export function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto space-y-8 md:space-y-0">
         <div className="flex flex-col items-center md:items-start gap-4">
           <span className="text-2xl font-black tracking-tighter text-on-surface">Skynium</span>
-          <p className="font-sans text-[11px] tracking-[0.05em] uppercase text-on-surface-variant">© 2024 Skynium</p>
+          <p className="font-sans text-[11px] tracking-[0.05em] uppercase text-on-surface-variant">© 2019-2026 Skynium</p>
         </div>
         
         <div className="flex gap-12 text-center md:text-left">
@@ -62,7 +62,7 @@ export function Footer() {
             <a href="mailto:jonathanb@skynium.fr" className="text-on-surface-variant hover:text-primary transition-colors">
               jonathanb@skynium.fr
             </a>
-            <a href="#" className="text-on-surface-variant hover:text-primary transition-colors">
+            <a href="https://www.linkedin.com/in/skynium" className="text-on-surface-variant hover:text-primary transition-colors">
               LinkedIn
             </a>
           </div>
