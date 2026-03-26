@@ -49,10 +49,15 @@ export default function Projets() {
                 Nous proposons des services de réparation, de maintenance et une assistance personnalisée pour lutter contre la fracture numérique.
               </p>
               <div className="flex gap-4">
-                <button className="px-8 py-3 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed font-bold flex items-center gap-2 hover:opacity-90 transition-all">
+                <a 
+                  href="https://skynium.fr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-8 py-3 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed font-bold flex items-center gap-2 hover:opacity-90 transition-all cursor-pointer inline-flex"
+                >
                   En savoir plus
                   <ArrowRight size={16} />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -129,10 +134,6 @@ export default function Projets() {
                   <div className="text-[10px] uppercase tracking-tighter text-on-surface-variant font-bold mb-1">Highlight</div>
                   <div className="text-sm font-bold text-on-surface">Long-métrage de 2h projeté au cinéma</div>
                 </div>
-                <button className="w-full py-4 rounded-xl border border-outline-variant text-on-surface font-bold hover:bg-surface-variant/40 transition-colors mt-4 flex items-center justify-center gap-2">
-                  <Camera size={18} />
-                  Voir le Showreel
-                </button>
               </div>
             </div>
           </div>

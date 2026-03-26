@@ -74,14 +74,6 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex gap-4">
-          <button className="w-10 h-10 rounded-full glass-panel flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group">
-            <Share2 size={16} className="group-hover:text-on-primary-container" />
-          </button>
-          <button className="w-10 h-10 rounded-full glass-panel flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group">
-            <ArrowDown size={16} className="group-hover:text-on-primary-container" />
-          </button>
-        </div>
       </div>
       <div className="mt-16 text-center">
         <p className="text-[10px] text-outline-variant uppercase tracking-[0.2em]">Crafted with spatial intent</p>
