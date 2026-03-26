@@ -4,7 +4,8 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig({
-  base: '/PortfolioJB/', // Pour que GitHub Pages trouve tes fichiers
+  // LE CHANGEMENT EST LÀ : on remet un simple slash
+  base: '/', 
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
