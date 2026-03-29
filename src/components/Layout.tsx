@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Globe, Share2, ArrowDown, Mail, Linkedin } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
 const NAV_LINKS = [
@@ -14,23 +14,77 @@ const NAV_LINKS = [
 
 export function TopNavBar() {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-3 bg-surface-variant/40 backdrop-blur-3xl rounded-full mt-6 mx-auto w-fit max-w-[95%] border-t border-l border-white/20 shadow-[0_40px_60px_-5px_rgba(80,40,174,0.08)]">
-      <div className="flex items-center gap-8">
-        <Link to="/" className="text-2xl font-black tracking-tighter text-on-surface dark:text-white">
-          Skynium
-        </Link>
-        <div className="hidden md:flex items-center gap-6">
+    // On englobe le tout dans une div relative pour que le menu mobile s'aligne bien dessous
+    <div className="fixed top-0 left-0 right-0 z-50 mt-6 mx-auto w-[95%] md:w-fit md:max-w-[95%]">
+      
+      {/* Barre de navigation principale (Pilule) */}
+      <nav className="flex items-center justify-between px-8 py-3 bg-surface-variant/40 backdrop-blur-3xl rounded-full border-t border-l border-white/20 shadow-[0_40px_60px_-5px_rgba(80,40,174,0.08)] relative z-20">
+        <div className="flex items-center gap-8">
+          <Link 
+            to="/" 
+            className="text-2xl font-black tracking-tighter text-on-surface dark:text-white"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Skynium
+          </Link>
+          
+          {/* Liens Desktop (Cachés sur mobile) */}
+          <div className="hidden md:flex items-center gap-6">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={cn(
+                  "font-sans font-bold tracking-tight uppercase text-[11px] transition-all duration-300 hover:scale-105",
+                  location.pathname === link.path
+                    ? "text-primary border-b-2 border-primary/50 font-black"
+                    : "text-on-surface-variant/70 hover:text-on-surface"
+                )}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 ml-auto md:ml-6">
+          <button className="text-primary hover:scale-110 active:scale-90 transition-transform">
+            <Globe size={20} />
+          </button>
+          
+          {/* Bouton Hamburger (Visible que sur mobile) */}
+          <button 
+            className="md:hidden text-on-surface hover:text-primary transition-colors ml-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Menu Mobile Déroulant */}
+      <div 
+        className={cn(
+          "absolute top-full left-0 right-0 mt-4 p-6 bg-surface-variant/95 backdrop-blur-3xl rounded-3xl border border-white/10 shadow-2xl transition-all duration-300 md:hidden z-10",
+          isMobileMenuOpen 
+            ? "opacity-100 translate-y-0 pointer-events-auto" 
+            : "opacity-0 -translate-y-4 pointer-events-none"
+        )}
+      >
+        <div className="flex flex-col gap-2">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.path}
               to={link.path}
+              onClick={() => setIsMobileMenuOpen(false)} // Ferme le menu quand on clique
               className={cn(
-                "font-sans font-bold tracking-tight uppercase text-[11px] transition-all duration-300 hover:scale-105",
+                "font-sans font-bold tracking-tight uppercase text-[13px] py-4 px-4 rounded-xl transition-all duration-300",
                 location.pathname === link.path
-                  ? "text-primary border-b-2 border-primary/50 font-black"
-                  : "text-on-surface-variant/70 hover:text-on-surface"
+                  ? "bg-primary/20 text-primary"
+                  : "text-on-surface-variant hover:text-on-surface hover:bg-white/5"
               )}
             >
               {link.name}
@@ -38,12 +92,7 @@ export function TopNavBar() {
           ))}
         </div>
       </div>
-      <div className="flex items-center gap-4 ml-6">
-        <button className="text-primary hover:scale-110 active:scale-90 transition-transform">
-          <Globe size={20} />
-        </button>
-      </div>
-    </nav>
+    </div>
   );
 }
 
@@ -84,9 +133,9 @@ export function Footer() {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <TopNavBar />
-      <div className="flex-grow">
+      <div className="flex-grow pt-24">
         {children}
       </div>
       <Footer />
