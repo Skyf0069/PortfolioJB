@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan BALBAS — SAÉ</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-title-fr="Jonathan BALBAS — SAÉ" data-title-en="Jonathan BALBAS — SAÉ projects">
+
+<canvas id="heart-field"></canvas>
+<div class="page-wrap">
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Accueil">
+      <svg class="heart-mark" viewBox="0 0 24 24" fill="currentColor" style="color:var(--red)"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg>
+      <span class="brand-txt"><b>Jonathan BALBAS</b><span>United By Music</span></span>
+    </a>
+    <button class="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+      <li><a href="sae.html" class="active" data-i18n="nav.sae">SAÉ</a></li>
+      <li><a href="labo.html" data-i18n="nav.labo">Laboratoire</a></li>
+      <li><a href="projets.html" data-i18n="nav.projets">Projets</a></li>
+      <li><a href="passions.html" data-i18n="nav.passions">Passions</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="block container">
+  <div class="sec-head reveal">
+    <span class="kicker" lang="fr">BUT R&amp;T · Situations d'apprentissage</span>
+    <span class="kicker" lang="en">Networks &amp; Telecom · Learning situations</span>
+    <h2 lang="fr">Mes <span class="grad-text">SAÉ</span></h2>
+    <h2 lang="en">My <span class="grad-text">SAÉ</span> projects</h2>
+    <p class="lead" lang="fr">Les Situations d'Apprentissage et d'Évaluation rythment le BUT R&amp;T : des projets concrets, du réseau à l'IoT, de la cybersécurité au traitement de données.</p>
+    <p class="lead" lang="en">The "SAÉ" are the hands-on, graded projects that structure the Networks &amp; Telecom degree: from networking to IoT, cybersecurity to data processing.</p>
+  </div>
+
+  <div class="sae-grid">
+    <article class="sae reveal">
+      <span class="num">01</span>
+      <span class="code">SAÉ 1.01</span>
+      <h3 lang="fr">CTF réseau &amp; récupération de données</h3>
+      <h3 lang="en">Network CTF &amp; data recovery</h3>
+      <p lang="fr">Capture The Flag orienté réseau : récupération de données et exploitation de failles par <strong>injections SQL et XML</strong>. Approche offensive pour comprendre comment mieux défendre.</p>
+      <p lang="en">Network-focused Capture The Flag: data recovery and vulnerability exploitation via <strong>SQL and XML injections</strong>. An offensive approach to better understand defence.</p>
+      <div class="tag-row"><span class="tag red">CTF</span><span class="tag">SQL</span><span class="tag">XML</span><span class="tag" lang="fr">Cybersécurité</span><span class="tag" lang="en">Cybersecurity</span></div>
+    </article>
+
+    <article class="sae reveal">
+      <span class="num">02</span>
+      <span class="code">SAÉ 1.02</span>
+      <h3 lang="fr">Analyse approfondie d'un réseau</h3>
+      <h3 lang="en">In-depth network analysis</h3>
+      <p lang="fr">Analyse complète d'un réseau personnel : découverte et identification des hôtes avec <strong>fping</strong> et <strong>nmap</strong>, relevé des <strong>adresses MAC</strong> et fabricants, détection des <strong>systèmes d'exploitation</strong>, et cartographie des services ouverts en <strong>TCP/UDP</strong>. Restitution en schéma réseau (Inkscape) et rapport technique.</p>
+      <p lang="en">Full analysis of a personal network: host discovery and identification with <strong>fping</strong> and <strong>nmap</strong>, capturing <strong>MAC addresses</strong> and vendors, detecting <strong>operating systems</strong>, and mapping open <strong>TCP/UDP</strong> services. Delivered as a network diagram (Inkscape) and a technical report.</p>
+      <div class="tag-row"><span class="tag">nmap</span><span class="tag">fping</span><span class="tag">TCP / UDP</span><span class="tag">MAC / OS</span><span class="tag">Inkscape</span></div>
+    </article>
+
+    <article class="sae reveal">
+      <span class="num">04</span>
+      <span class="code">SAÉ 1.04</span>
+      <h3 lang="fr">Création d'un site web — ce portfolio</h3>
+      <h3 lang="en">Building a website — this portfolio</h3>
+      <p lang="fr">Conception et développement d'un site web personnel. <strong>Vous y êtes :</strong> ce portfolio en est le résultat, ici réinventé aux couleurs de l'Eurovision 2025.</p>
+      <p lang="en">Designing and developing a personal website. <strong>You're looking at it:</strong> this very portfolio is the deliverable, here reimagined in Eurovision 2025 colours.</p>
+      <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag red" lang="fr">Vous êtes ici ♥</span><span class="tag red" lang="en">You are here ♥</span></div>
+    </article>
+
+    <article class="sae reveal">
+      <span class="num">02</span>
+      <span class="code">SAÉ 2.02</span>
+      <h3 lang="fr">Caméra IP &amp; détection d'intrusion</h3>
+      <h3 lang="en">IP camera &amp; intrusion detection</h3>
+      <p lang="fr">Configuration d'une <strong>caméra IP</strong> et développement <strong>Python</strong> pour l'analyse vidéo : détection de mouvement et d'intrusion en temps réel.</p>
+      <p lang="en">Setting up an <strong>IP camera</strong> and writing <strong>Python</strong> for video analysis: real-time motion and intrusion detection.</p>
+      <div class="tag-row"><span class="tag">Python</span><span class="tag" lang="fr">Vision</span><span class="tag" lang="en">Vision</span><span class="tag">IP Cam</span></div>
+    </article>
+
+    <article class="sae reveal">
+      <span class="num">03</span>
+      <span class="code">SAÉ 2.03</span>
+      <h3 lang="fr">Agrégateur de flux RSS de supervision</h3>
+      <h3 lang="en">RSS monitoring aggregator</h3>
+      <p lang="fr">Système professionnel d'<strong>agrégation de flux RSS</strong> entre plusieurs ordinateurs, pour surveiller et remonter automatiquement les problèmes de fonctionnement des machines.</p>
+      <p lang="en">A professional <strong>RSS aggregation system</strong> spanning multiple computers, to monitor and automatically surface machine malfunctions.</p>
+      <div class="tag-row"><span class="tag">RSS</span><span class="tag" lang="fr">Supervision</span><span class="tag" lang="en">Monitoring</span><span class="tag" lang="fr">Multi-postes</span><span class="tag" lang="en">Multi-host</span></div>
+    </article>
+
+    <article class="sae reveal">
+      <span class="num">04</span>
+      <span class="code">SAÉ 2.04</span>
+      <h3 lang="fr">Projet intégratif : chaîne IoT &amp; supervision</h3>
+      <h3 lang="en">Integrative project: IoT pipeline &amp; monitoring</h3>
+      <p lang="fr">Capteurs d'<strong>UV et de température</strong> sur carte <strong>STM32 WB55</strong> reliés à un <strong>Raspberry Pi</strong>, qui transmet à un <strong>VPS</strong> puis à un cluster de <strong>VMs</strong>. Collecte via serveur <strong>MQTT (Mosquitto)</strong>, stockage en <strong>MariaDB / InfluxDB</strong>, visualisation sur des dashboards <strong>Grafana</strong> (et PHP / Gnuplot). Supervision de l'infra avec <strong>Icinga2</strong>, sauvegardes <strong>rsync</strong> et volet cybersécurité.</p>
+      <p lang="en"><strong>UV &amp; temperature</strong> sensors on an <strong>STM32 WB55</strong> board wired to a <strong>Raspberry Pi</strong>, streaming to a <strong>VPS</strong> then a cluster of <strong>VMs</strong>. Collection via an <strong>MQTT (Mosquitto)</strong> broker, storage in <strong>MariaDB / InfluxDB</strong>, visualisation on <strong>Grafana</strong> dashboards (plus PHP / Gnuplot). Infrastructure monitored with <strong>Icinga2</strong>, <strong>rsync</strong> backups and a cybersecurity component.</p>
+      <div class="tag-row"><span class="tag">STM32 WB55</span><span class="tag">Raspberry Pi</span><span class="tag">Mosquitto</span><span class="tag">InfluxDB</span><span class="tag cyan">Grafana</span><span class="tag cyan">Icinga2</span></div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" id="footer-placeholder"></footer>
+</div>
+
+<script src="assets/footer.js"></script>
+<script src="assets/hearts.js"></script>
+<script src="assets/site.js"></script>
+<script src="public/skynium-data.js"></script>
+</body>
+</html>

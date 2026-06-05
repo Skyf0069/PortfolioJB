@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan BALBAS — Laboratoire</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .flow{display:flex;flex-direction:column;gap:14px;width:100%;padding:30px;background:
+    radial-gradient(120% 120% at 30% 10%,rgba(255,17,38,.14),transparent 60%),var(--panel-2);
+    border-radius:var(--radius-lg);border:1px solid var(--line);}
+  .flow-node{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;
+    background:linear-gradient(160deg,var(--panel),var(--black-2));border:1px solid var(--line-strong);}
+  .flow-node .fic{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:10px;
+    background:rgba(255,17,38,.12);color:var(--red-bright);font-family:var(--font-head);font-weight:700;font-size:.9rem;}
+  .flow-node b{font-family:var(--font-head);font-size:1rem;display:block;}
+  .flow-node span{font-size:.82rem;color:var(--muted);}
+  .flow-arrow{display:flex;justify-content:center;color:var(--red);}
+  .flow-arrow svg{width:22px;height:22px;}
+  .flow-node.accent{border-color:rgba(255,17,38,.5);box-shadow:var(--shadow-red);}
+</style>
+</head>
+<body data-title-fr="Jonathan BALBAS — Laboratoire" data-title-en="Jonathan BALBAS — Lab">
+
+<canvas id="heart-field"></canvas>
+<div class="page-wrap">
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Accueil">
+      <svg class="heart-mark" viewBox="0 0 24 24" fill="currentColor" style="color:var(--red)"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg>
+      <span class="brand-txt"><b>Jonathan BALBAS</b><span>United By Music</span></span>
+    </a>
+    <button class="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+      <li><a href="sae.html" data-i18n="nav.sae">SAÉ</a></li>
+      <li><a href="labo.html" class="active" data-i18n="nav.labo">Laboratoire</a></li>
+      <li><a href="projets.html" data-i18n="nav.projets">Projets</a></li>
+      <li><a href="passions.html" data-i18n="nav.passions">Passions</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="block container">
+  <div class="sec-head reveal">
+    <span class="kicker" lang="fr">Le laboratoire</span>
+    <span class="kicker" lang="en">The lab</span>
+    <h2 lang="fr">Mes <span class="grad-text">expérimentations</span> perso</h2>
+    <h2 lang="en">My personal <span class="grad-text">experiments</span></h2>
+    <p class="lead" lang="fr">Ma "cuisine" technique : l'endroit où je teste, casse, optimise et apprends — infrastructure, domotique, réseaux et bidouille hardware.</p>
+    <p class="lead" lang="en">My technical "kitchen": where I test, break, optimise and learn — infrastructure, home automation, networks and hardware tinkering.</p>
+  </div>
+
+  <!-- PROJET 1 : IAM / SSO -->
+  <div class="feature reveal">
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag red">SSO</span><span class="tag">OAuth2</span><span class="tag">IAM</span></div>
+      <h3 lang="fr">Intégration IAM &amp; SSO : Auth0 ↔ Infomaniak</h3>
+      <h3 lang="en">IAM &amp; SSO integration: Auth0 ↔ Infomaniak</h3>
+      <p lang="fr">Mettre en place une authentification unique (SSO) fluide et sécurisée pour l'environnement Skynium, entre <strong>Auth0</strong> (gestion d'identité) et la suite collaborative <strong>Infomaniak kSuite</strong>.</p>
+      <p lang="en">Setting up smooth, secure single sign-on (SSO) for the Skynium environment, bridging <strong>Auth0</strong> (identity management) and the <strong>Infomaniak kSuite</strong> collaboration suite.</p>
+      <p lang="fr">Face aux limites de SAML dans ce contexte, j'ai pivoté vers une architecture <strong>OAuth2</strong> : manipulation d'API REST, débogage des flux d'authentification et scripts JavaScript pour le mappage correct des utilisateurs entre les deux fournisseurs.</p>
+      <p lang="en">Hitting SAML's limits here, I pivoted to an <strong>OAuth2</strong> architecture: REST API work, debugging auth flows and custom JavaScript to correctly map users between both providers.</p>
+    </div>
+    <div class="feature-media" style="border:0;background:transparent;box-shadow:none">
+      <div class="flow">
+        <div class="flow-node"><span class="fic">IK</span><span><b>Infomaniak</b><span lang="fr">Annuaire utilisateurs (kSuite)</span><span lang="en">User directory (kSuite)</span></span></div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+        <div class="flow-node"><span class="fic">API</span><span><b>API Infomaniak</b><span lang="fr">Récupération &amp; mappage des comptes</span><span lang="en">Account fetch &amp; mapping</span></span></div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+        <div class="flow-node"><span class="fic">A0</span><span><b>Auth0</b><span lang="fr">Fournisseur d'identité · OAuth2 / OIDC</span><span lang="en">Identity provider · OAuth2 / OIDC</span></span></div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+        <div class="flow-node accent"><span class="fic" style="background:rgba(255,17,38,.22)">♥</span><span><b>Skynium</b><span lang="fr">Connexion unique sécurisée</span><span lang="en">Secure single sign-on</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJET 2 : DOMOTIQUE -->
+  <div class="feature flip reveal">
+    <div class="feature-media">
+      <img src="assets/img/hascreen.png" alt="Interface HomeAssistant" loading="lazy">
+    </div>
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag red" lang="fr">Domotique</span><span class="tag red" lang="en">Home automation</span><span class="tag">HomeAssistant</span><span class="tag">IoT</span></div>
+      <h3 lang="fr">Domotique : ma chambre réactive</h3>
+      <h3 lang="en">Home automation: my reactive bedroom</h3>
+      <p lang="fr">J'ai transformé mon espace personnel en environnement réactif avec <strong>HomeAssistant</strong>. Mon terrain de jeu IoT : éclairage, sonnerie et multimédia centralisés via des protocoles variés — le tout <strong>sans dépendre du cloud</strong>.</p>
+      <p lang="en">I turned my room into a reactive environment with <strong>HomeAssistant</strong>. My IoT playground: lighting, doorbell and multimedia centralised over varied protocols — all <strong>without relying on the cloud</strong>.</p>
+    </div>
+  </div>
+
+  <!-- PROJET 3 : SSH -->
+  <div class="feature reveal">
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag cyan">SSH</span><span class="tag" lang="fr">Web</span><span class="tag" lang="en">Web</span><span class="tag red">5× <span lang="fr">plus rapide</span><span lang="en">faster</span></span></div>
+      <h3 lang="fr">Skynium Student Hub : l'emploi du temps qui va vite</h3>
+      <h3 lang="en">Skynium Student Hub: the timetable that's actually fast</h3>
+      <p lang="fr">Face à la lenteur de la plateforme officielle (ADE), j'ai cuisiné ma propre solution : le <strong>SSH</strong>, une interface web ultra-rapide pour l'emploi du temps des étudiants de l'IUT R&amp;T de Luminy.</p>
+      <p lang="en">Frustrated by the official platform (ADE), I cooked up my own: <strong>SSH</strong>, an ultra-fast web interface for the IUT R&amp;T Luminy timetable.</p>
+      <p lang="fr">La recette : un script backend tourne chaque nuit à <strong>04 h 00</strong> pour récupérer et mettre en cache les données. À la connexion, l'élève ne voit que les cours de son groupe de <strong>TP/TD</strong> — affichage filtré, personnalisé et épuré.</p>
+      <p lang="en">The recipe: a backend script runs every night at <strong>04:00</strong> to fetch and cache the data. On login, each student only sees their <strong>lab/tutorial group</strong> classes — filtered, personalised and clean.</p>
+    </div>
+    <div class="feature-media">
+      <img src="assets/img/ade/ssh.png" alt="Interface SSH" loading="lazy">
+    </div>
+  </div>
+
+  <!-- PROJETS EN COURS -->
+  <div class="sec-head reveal" style="margin-top:64px;margin-bottom:32px">
+    <span class="kicker soon" style="color:#ffd24a" lang="fr">En mijotage</span>
+    <span class="kicker soon" style="color:#ffd24a" lang="en">Simmering</span>
+    <h2 lang="fr">Ce qui mijote au labo</h2>
+    <h2 lang="en">What's cooking in the lab</h2>
+  </div>
+
+  <div class="grid cols-2">
+    <article class="card reveal">
+      <div class="tag-row" style="margin-bottom:12px"><span class="tag soon" lang="fr">⏲ En conception</span><span class="tag soon" lang="en">⏲ In design</span></div>
+      <h3 lang="fr">Cloud perso &amp; Raspberry Pi</h3>
+      <h3 lang="en">Personal cloud &amp; Raspberry Pi</h3>
+      <p lang="fr">Déployer un serveur Linux autonome sur <strong>Raspberry Pi</strong> pour m'affranchir des solutions propriétaires. Accès distant en architecture <strong>Zero Trust</strong> (Cloudflare Tunnel ou Tailscale), sans exposer de ports inutilement.</p>
+      <p lang="en">Deploying a self-hosted Linux server on <strong>Raspberry Pi</strong> to break free from proprietary clouds. Remote access via a <strong>Zero Trust</strong> architecture (Cloudflare Tunnel or Tailscale), without needlessly exposing ports.</p>
+      <div class="tag-row"><span class="tag">Linux</span><span class="tag">Zero Trust</span><span class="tag">Cloudflare</span><span class="tag">Tailscale</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="tag-row" style="margin-bottom:12px"><span class="tag soon" lang="fr">⏲ R&amp;D</span><span class="tag soon" lang="en">⏲ R&amp;D</span></div>
+      <h3 lang="fr">Virtualisation &amp; services réseaux</h3>
+      <h3 lang="en">Virtualisation &amp; network services</h3>
+      <p lang="fr">Transformer mon Raspberry Pi en hyperviseur de poche : segmenter via <strong>VM / conteneurs</strong> pour recréer un réseau d'entreprise miniature, et configurer manuellement <strong>DHCP</strong>, <strong>DNS</strong> local (Pi-hole) — mettre les mains dans le cambouis.</p>
+      <p lang="en">Turning my Raspberry Pi into a pocket hypervisor: segmenting with <strong>VMs / containers</strong> to recreate a miniature enterprise network, and hand-configuring <strong>DHCP</strong> and local <strong>DNS</strong> (Pi-hole) — getting hands dirty.</p>
+      <div class="tag-row"><span class="tag">VM</span><span class="tag">DHCP</span><span class="tag">DNS</span><span class="tag">Pi-hole</span></div>
+    </article>
+  </div>
+
+  <p class="note reveal" style="margin-top:36px" lang="fr"><em>Avertissement légal :</em> les marques citées (Infomaniak™, Auth0™, HomeAssistant™, etc.) appartiennent à leurs propriétaires respectifs. Elles sont mentionnées à titre purement descriptif et pédagogique, dans le cadre d'un portfolio étudiant. Aucune affiliation ni partenariat officiel.</p>
+  <p class="note reveal" style="margin-top:36px" lang="en"><em>Legal notice:</em> the brands mentioned (Infomaniak™, Auth0™, HomeAssistant™, etc.) belong to their respective owners. They are referenced purely descriptively and educationally, within a student portfolio. No official affiliation or partnership.</p>
+</section>
+</main>
+
+<footer class="site-footer" id="footer-placeholder"></footer>
+</div>
+
+<script src="assets/footer.js"></script>
+<script src="assets/hearts.js"></script>
+<script src="assets/site.js"></script>
+<script src="public/skynium-data.js"></script>
+</body>
+</html>

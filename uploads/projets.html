@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALBAS Jonathan - PROJETS</title>
+
+    <link rel="stylesheet" href="ressources/style.css"> 
+    
+    <!-- Favicons (déjà expliqués précédemment) -->
+    <link rel="icon" type="image/png" href="ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="ressources/favicon/site.webmanifest" />
+</head>
+<body>
+
+    <header>
+        <div class="identite">
+            <div class="nom">BALBAS Jonathan - PROJETS</div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="cv.html">Cv</a></li>
+                    <li><a href="projets.html">PROJETS</a></li>
+                    <li><a href="labo.html">Laboratoire Personnel</a></li>
+                    <li><a href="hobbies.html">Passions</a></li>
+                </ul>
+            </nav>
+
+            <div class="lang-switch">
+                <a href="projets.html" class="lang-btn active" title="Français">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR">
+                </a>
+
+                <a href="../EN/projets.html" class="lang-btn" title="English">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+            </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ===== LIGNE DE SÉPARATION HORIZONTALE ===== -->
+    <!-- <hr> : balise HTML auto-fermante qui crée une ligne horizontale (horizontal rule)
+         Utilisée pour séparer visuellement l'en-tête du contenu principal
+         Son apparence (couleur, épaisseur, style) peut être personnalisée via CSS -->
+    <hr> 
+    
+    <!-- ===== CONTENU PRINCIPAL AVEC ID ===== -->
+    <!-- id="projets" : identifiant unique de l'élément
+         Permet de cibler cet élément spécifiquement en CSS (#projets) ou en JavaScript
+         Peut aussi servir d'ancre pour créer un lien direct vers cette section (index.html#projets) -->
+    <main id="projets">
+        <section class="projet-section">
+            <h1>Mes Projets</h1>
+            
+            <!-- <br> : balise auto-fermante qui crée un saut de ligne
+                 Utilisée ici pour ajouter de l'espace vertical entre le titre et le contenu -->
+            <br>
+
+            <!-- ===== PROJET 1 : SKYNIUM ===== -->
+
+            <h2>Skynium</h2>
+
+            <div class="projet-layout">
+
+                <div class="projet-texte">
+                    <p>
+                        <!-- Lien hypertexte externe vers le site Skynium
+                             href="https://skynium.fr" : URL complète (protocole https:// obligatoire)
+                             <strong> : met le texte en gras (importance sémantique forte) -->
+                        Si <a href="https://skynium.fr"><strong>Skynium</strong></a> a officiellement vu le jour en 2025, c'est un projet qui mûrit en moi depuis 2019. 
+                        Cette entreprise est née d'une mission claire : réconcilier les utilisateurs avec l'informatique et les nouvelles technologies. 
+                        Je propose ainsi des services complets de réparation, de maintenance et d'assistance personnalisée pour ceux qui se sentent perdus face au numérique.
+                    </p>
+                    <p>
+                        Passionné par l'informatique depuis mon enfance et animé par un profond désir d'aider les autres, j'ai fondé Skynium pour fusionner ces deux univers. 
+                        Mon objectif est de rendre la technologie accessible à tous. Je m'efforce de transformer des problèmes techniques complexes en solutions simples, 
+                        rapides et efficaces.
+                    </p>
+                </div>
+
+                <!-- ===== CARROUSEL D'IMAGES POUR SKYNIUM ===== -->
+                <div class="carousel-container">
+                    <!-- Conteneur des slides : permet de faire défiler plusieurs images
+                         La logique de défilement (flèches, points) est gérée par JavaScript (non visible ici)
+                         ou uniquement par CSS si utilisation de scroll-snap -->
+                    <div class="carousel-slides">
+                        
+                        <!-- Chaque slide contient une image et sa description -->
+                        <div class="slide">
+                            <!-- alt="..." : texte alternatif obligatoire pour l'accessibilité
+                                 Décrit l'image pour les lecteurs d'écran et s'affiche si l'image ne charge pas -->
+                            <img src="ressources/images/skynium/image1.png" alt="Aperçu Skynium 1">
+                            <div class="slide-desc">Assistance d'une personne, généré par l'IA.</div>
+                        </div>
+
+                        <div class="slide">
+                            <img src="ressources/images/skynium/image2.png" alt="Aperçu Skynium 2">
+                            <div class="slide-desc">Assistance d'une personne, généré par l'IA.</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== PROJET 2 : SKYNIUM ARENA ===== -->
+            
+            <h2>Skynium Arena</h2>
+            
+            <div class="projet-layout">
+                
+                <div class="projet-texte">
+                    <p>
+                        L'idée de construire la Skynium Arena vient tout simplement de ma grande passion pour l'Eurovision. 
+                        Cet événement est pour moi un modèle : il rassemble des artistes de toute l'Europe dans une immense salle, 
+                        avec des jeux de lumière et des effets visuels impressionnants. C'est exactement ce qui me donne envie 
+                        de créer cette Arena : pouvoir créer cette magie et réunir les gens au même endroit.
+                    </p>
+                    <p>
+                        J'ai aussi imaginé cette arène avec un système vidéo très complet. Je veux qu'elle soit équipée de nombreuses caméras 
+                        pour filmer et garder une trace de chaque événement. L'objectif est d'avoir des mouvements fluides et des angles 
+                        de vue multiples pour un rendu professionnel, comme à la télé. Mon rêve ultime est de construire la Skynium Arena 
+                        pour de vrai et d'y accueillir, un jour, le concours Eurovision de la chanson.
+                    </p>
+                </div>
+
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+                        
+                        <div class="slide">
+                            <img src="ressources/images/arena/outside.jpg" alt="Aperçu Skynium Arena 1">
+                            <div class="slide-desc">Skynium Arena généré par l'IA vu de l'extérieur.</div>
+                        </div>
+
+                        <div class="slide">
+                            <img src="ressources/images/arena/inside.jpg" alt="Aperçu Skynium Arena 2">
+                            <div class="slide-desc">Skynium Arena généré par l'IA vu de l'intérieur.</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <!-- ===== PROJET 3 : ABOVE THE SKY PRODUCTIONS ===== -->
+
+            <h2>Above The Sky Productions</h2>
+
+            <div class="projet-layout">
+
+                <div class="projet-texte">
+                    <p>
+                        <!-- Lien vers un sous-domaine : structure URL hiérarchique
+                             abovetheskyproductions.skynium.fr = sous-domaine de skynium.fr -->
+                        <a href="https://abovetheskyproductions.skynium.fr"><strong>Above The Sky Productions</strong></a> est la branche créative de Skynium, dédiée à la production de contenu audiovisuel. 
+                        Cette marque concrétise une de mes ambitions futures de réaliser mes propres fictions (films, séries). 
+                        Tout a commencé dans un cadre privé : en réalisant des films pour des événements familiaux, j'ai découvert une véritable passion pour la mise en scène et la narration par l'image.
+                    </p>
+                    <p>
+                        Pour passer à la vitesse supérieure, je m'associe désormais avec un collaborateur étudiant en école de cinéma. 
+                        En unissant nos compétences techniques et artistiques, nous visons à produire des œuvres plus ambitieuses. 
+                        À ce jour, Above The Sky Productions compte déjà six réalisations à son actif, dont un long-métrage de deux heures et une projection au cinéma.
+                    </p>
+                </div>
+
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+
+                        <div class="slide">
+                            <img src="ressources/images/ats/image2.png" alt="Aperçu Above The Sky Productions 2">
+                            <div class="slide-desc">We Were Here, film de 2H monté sur Final Cut Pro.</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan BALBAS — Projets</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-title-fr="Jonathan BALBAS — Projets" data-title-en="Jonathan BALBAS — Projects">
+
+<canvas id="heart-field"></canvas>
+<div class="page-wrap">
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Accueil">
+      <svg class="heart-mark" viewBox="0 0 24 24" fill="currentColor" style="color:var(--red)"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg>
+      <span class="brand-txt"><b>Jonathan BALBAS</b><span>United By Music</span></span>
+    </a>
+    <button class="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+      <li><a href="sae.html" data-i18n="nav.sae">SAÉ</a></li>
+      <li><a href="labo.html" data-i18n="nav.labo">Laboratoire</a></li>
+      <li><a href="projets.html" class="active" data-i18n="nav.projets">Projets</a></li>
+      <li><a href="passions.html" data-i18n="nav.passions">Passions</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="block container">
+  <div class="sec-head reveal">
+    <span class="kicker" lang="fr">Réalisations &amp; ambitions</span>
+    <span class="kicker" lang="en">Built &amp; dreaming</span>
+    <h2 lang="fr">Mes <span class="grad-text">projets</span></h2>
+    <h2 lang="en">My <span class="grad-text">projects</span></h2>
+    <p class="lead" lang="fr">Des plateformes que j'ai construites pour aider les étudiants, jusqu'à la salle de spectacle dont je rêve depuis l'Eurovision.</p>
+    <p class="lead" lang="en">From platforms I built to help fellow students, to the show venue I've dreamed of ever since Eurovision.</p>
+  </div>
+
+  <!-- RÉALISÉS -->
+  <span class="kicker reveal" style="margin-bottom:8px;display:inline-flex" lang="fr">✦ Réalisés</span>
+  <span class="kicker reveal" style="margin-bottom:8px;display:inline-flex" lang="en">✦ Shipped</span>
+
+  <!-- Skynium ACADEMY -->
+  <div class="feature reveal" style="margin-top:26px">
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag red">OIDC</span><span class="tag" lang="fr">Étudiants IUT R&amp;T</span><span class="tag" lang="en">IUT R&amp;T students</span></div>
+      <h3>Skynium ACADEMY</h3>
+      <p lang="fr">Un véritable <strong>environnement de travail</strong> pensé pour les étudiants de l'IUT R&amp;T, avec un <strong>OIDC personnalisé</strong> pour une connexion unifiée et sécurisée à l'ensemble des outils.</p>
+      <p lang="en">A genuine <strong>working environment</strong> built for IUT R&amp;T students, with a <strong>custom OIDC</strong> provider for unified, secure single sign-on across all the tools.</p>
+      <p lang="fr">Reconnu par plusieurs élèves pour le <strong>soutien</strong> qu'il apporte tout au long de l'année. L'an prochain, fruit d'une collaboration avec plusieurs étudiants, Skynium ACADEMY <strong>s'agrandit</strong> : plus d'aide pour les nouveaux première année comme pour ceux qui passent en deuxième année.</p>
+      <p lang="en">Recognised by several students for the <strong>support</strong> it provides all year long. Next year, born from a collaboration with several students, Skynium ACADEMY is <strong>growing</strong>: more help for incoming first-years and for those moving up to second year.</p>
+    </div>
+    <div class="feature-media">
+      <img src="assets/img/projets/academy.png" alt="Skynium ACADEMY" loading="lazy">
+    </div>
+  </div>
+
+  <!-- RuBY -->
+  <div class="feature flip reveal">
+    <div class="feature-media">
+      <img src="assets/img/projets/ruby.png" alt="RuBY" loading="lazy">
+    </div>
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag red" lang="fr">Plateforme de cours</span><span class="tag red" lang="en">Course platform</span><span class="tag" lang="fr">Soutien</span><span class="tag" lang="en">Tutoring</span></div>
+      <h3>RuBY</h3>
+      <p lang="fr">Une <strong>copie conforme d'AMeTICE</strong> enrichie de <strong>cours de soutien</strong> pour les étudiants. L'objectif : retrouver ses repères dans une interface familière, tout en bénéficiant de ressources d'accompagnement supplémentaires.</p>
+      <p lang="en">A <strong>faithful clone of AMeTICE</strong> enriched with <strong>tutoring courses</strong> for students. The goal: a familiar interface students already know, plus extra support resources layered on top.</p>
+      <p lang="fr">Comme Skynium ACADEMY, RuBY a été <strong>reconnu par des élèves</strong> pour l'aide concrète qu'il apporte pendant l'année.</p>
+      <p lang="en">Like Skynium ACADEMY, RuBY has been <strong>recognised by students</strong> for the concrete help it brings throughout the year.</p>
+    </div>
+  </div>
+
+  <!-- Skynium Teams -->
+  <div class="feature reveal">
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag red" lang="fr">Collaboratif</span><span class="tag red" lang="en">Collaboration</span><span class="tag" lang="fr">Suivi de tâches</span><span class="tag" lang="en">Task tracking</span><span class="tag cyan">Skynium ACADEMY</span></div>
+      <h3>Skynium ACADEMY - Teams</h3>
+      <p lang="fr">Pour mon équipe de travail sur les SAÉ, j'ai développé <strong>Skynium ACADEMY - Teams</strong>, une plateforme collaborative qui <strong>remplace Microsoft Teams</strong> : suivi des tâches, planning des réunions et suivi du temps, réunis dans une seule interface.</p>
+      <p lang="en">For my SAÉ work team, I built <strong>Skynium ACADEMY - Teams</strong>, a collaboration platform that <strong>replaces Microsoft Teams</strong>: task tracking, meeting scheduling and time tracking, all in one interface.</p>
+      <p lang="fr">Pensé pour la productivité réelle d'une équipe étudiante, il est <strong>plus performant que Microsoft Teams</strong> et entièrement intégré à l'environnement <strong>sécurisé de Skynium ACADEMY</strong>.</p>
+      <p lang="en">Designed for a student team's real productivity, it is <strong>more performant than Microsoft Teams</strong> and fully integrated into the <strong>secure Skynium ACADEMY environment</strong>.</p>
+    </div>
+    <div class="feature-media">
+      <img src="assets/img/projets/teams.png" alt="Skynium ACADEMY - Teams" loading="lazy">
+    </div>
+  </div>
+
+  <!-- MES ENTREPRISES -->
+  <div class="sec-head reveal" style="margin-top:64px;margin-bottom:28px">
+    <span class="kicker" lang="fr">✦ Mes entreprises</span>
+    <span class="kicker" lang="en">✦ My ventures</span>
+    <h2 lang="fr">Bâtir des <span class="grad-text">marques</span></h2>
+    <h2 lang="en">Building <span class="grad-text">brands</span></h2>
+  </div>
+
+  <!-- Skynium -->
+  <div class="feature reveal">
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag red" lang="fr">Entreprise</span><span class="tag red" lang="en">Company</span><span class="tag" lang="fr">Depuis 2019</span><span class="tag" lang="en">Since 2019</span></div>
+      <h3>Skynium</h3>
+      <p lang="fr">Si <a href="https://skynium.fr" target="_blank" rel="noopener"><strong>Skynium</strong></a> a officiellement vu le jour en 2025, c'est un projet qui mûrit en moi depuis 2019. Une mission claire : <strong>réconcilier les utilisateurs avec l'informatique</strong> grâce à des services de réparation, de maintenance et d'assistance personnalisée.</p>
+      <p lang="en">Although <a href="https://skynium.fr" target="_blank" rel="noopener"><strong>Skynium</strong></a> officially launched in 2025, it has been maturing in me since 2019. One clear mission: <strong>reconciling users with computing</strong> through repair, maintenance and personalised support.</p>
+      <p lang="fr">Passionné d'informatique depuis l'enfance et animé par le désir d'aider, j'ai fondé Skynium pour fusionner ces deux univers et transformer des problèmes techniques complexes en solutions simples, rapides et efficaces.</p>
+      <p lang="en">Passionate about IT since childhood and driven to help, I founded Skynium to merge those two worlds — turning complex technical problems into simple, fast, effective solutions.</p>
+      <a class="btn btn-ghost" href="https://skynium.fr" target="_blank" rel="noopener">skynium.fr ↗</a>
+    </div>
+    <div class="media-stack">
+      <div class="feature-media"><img src="assets/img/skynium/image1.png" alt="Skynium" loading="lazy"></div>
+      <div class="feature-media"><img src="assets/img/skynium/image2.png" alt="Skynium" loading="lazy"></div>
+    </div>
+  </div>
+
+  <!-- Above The Sky Productions -->
+  <div class="feature flip reveal">
+    <div class="feature-media">
+      <img src="assets/img/ats/image2.png" alt="Above The Sky Productions — We Were Here" loading="lazy">
+    </div>
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag red" lang="fr">Audiovisuel</span><span class="tag red" lang="en">Audiovisual</span><span class="tag" lang="fr">6 réalisations</span><span class="tag" lang="en">6 productions</span></div>
+      <h3>Above The Sky Productions</h3>
+      <p lang="fr">La branche créative de Skynium, dédiée à la <strong>production de contenu audiovisuel</strong>. Tout a commencé en filmant des événements familiaux : j'y ai découvert une vraie passion pour la mise en scène et la narration par l'image.</p>
+      <p lang="en">Skynium's creative branch, dedicated to <strong>audiovisual content production</strong>. It all began filming family events: there I discovered a real passion for directing and visual storytelling.</p>
+      <p lang="fr">Désormais associé à un collaborateur étudiant en école de cinéma, nous visons des œuvres plus ambitieuses. À ce jour : <strong>6 réalisations</strong>, dont un long-métrage de 2 h et une projection au cinéma (<em>We Were Here</em>, monté sur Final Cut Pro).</p>
+      <p lang="en">Now partnered with a film-school student, we aim for more ambitious work. So far: <strong>6 productions</strong>, including a 2-hour feature and a cinema screening (<em>We Were Here</em>, edited on Final Cut Pro).</p>
+      <a class="btn btn-ghost" href="https://abovethesky.fr" target="_blank" rel="noopener">abovethesky.fr ↗</a>
+    </div>
+  </div>
+
+  <!-- FUTUR -->
+  <div class="sec-head reveal" style="margin-top:64px;margin-bottom:28px">
+    <span class="kicker soon" style="color:#ffd24a" lang="fr">✦ À venir</span>
+    <span class="kicker soon" style="color:#ffd24a" lang="en">✦ On the horizon</span>
+    <h2 lang="fr">Le grand <span class="grad-text">rêve</span></h2>
+    <h2 lang="en">The big <span class="grad-text">dream</span></h2>
+  </div>
+
+  <!-- Skynium Arena -->
+  <div class="feature reveal">
+    <div class="feature-body">
+      <div class="tag-row" style="margin-bottom:14px"><span class="tag soon" lang="fr">Concept</span><span class="tag soon" lang="en">Concept</span><span class="tag red">Eurovision ♥</span></div>
+      <h3>Skynium Arena</h3>
+      <p lang="fr">L'idée vient tout droit de ma passion pour l'<strong>Eurovision</strong> : une immense salle qui rassemble les gens autour d'une scène, avec jeux de lumière et effets visuels impressionnants.</p>
+      <p lang="en">The idea comes straight from my love of <strong>Eurovision</strong>: a vast venue that brings people together around one stage, with stunning lighting and visual effects.</p>
+      <p lang="fr">Je l'imagine équipée d'un <strong>système multi-caméras</strong> complet pour des captations dignes de la télé. Mon rêve ultime : la construire pour de vrai et y accueillir un jour le <strong>concours Eurovision</strong> — mais aussi des mariages et des anniversaires.</p>
+      <p lang="en">I picture it fitted with a full <strong>multi-camera system</strong> for broadcast-grade captures. My ultimate dream: to build it for real and one day host the <strong>Eurovision Song Contest</strong> — alongside weddings and birthdays.</p>
+    </div>
+    <div class="media-stack">
+      <div class="feature-media"><img src="assets/img/arena/outside.jpg" alt="Skynium Arena — extérieur" loading="lazy"></div>
+      <div class="feature-media"><img src="assets/img/arena/inside.jpg" alt="Skynium Arena — intérieur" loading="lazy"></div>
+    </div>
+  </div>
+
+  <p class="note reveal" style="margin-top:30px" lang="fr"><em>Note :</em> visuels Skynium Arena générés par IA, à titre d'illustration du concept.</p>
+  <p class="note reveal" style="margin-top:30px" lang="en"><em>Note:</em> Skynium Arena visuals are AI-generated, illustrating the concept only.</p>
+
+  <!-- CTA -->
+  <div class="cta reveal" style="margin-top:56px">
+    <p class="serif" style="font-size:clamp(1.6rem,4vw,2.6rem);color:#fff;margin:.1em 0 .4em">United By Music</p>
+    <p class="lead" style="margin:0 auto 1.6em" lang="fr">Un projet, une idée de collaboration ? Construisons quelque chose qui rassemble.</p>
+    <p class="lead" style="margin:0 auto 1.6em" lang="en">Got a project or a collaboration in mind? Let's build something that brings people together.</p>
+    <a class="btn btn-primary" href="https://www.linkedin.com/in/skynium/" target="_blank" rel="noopener"><span data-i18n="cta.contact">Me contacter</span></a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" id="footer-placeholder"></footer>
+</div>
+
+<script src="assets/footer.js"></script>
+<script src="assets/hearts.js"></script>
+<script src="assets/site.js"></script>
+<script src="public/skynium-data.js"></script>
+</body>
+</html>

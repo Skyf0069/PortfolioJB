@@ -1,13 +1,149 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jonathan BALBAS - Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script src="/skynium-data.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan BALBAS — Portfolio</title>
+<meta name="description" content="Portfolio de Jonathan BALBAS — étudiant BUT R&T, fondateur de Skynium. United By Music.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-title-fr="Jonathan BALBAS — Portfolio" data-title-en="Jonathan BALBAS — Portfolio">
+
+<canvas id="heart-field"></canvas>
+
+<div class="page-wrap">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Accueil">
+      <svg class="heart-mark" viewBox="0 0 24 24" fill="currentColor" style="color:var(--red)"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg>
+      <span class="brand-txt"><b>Jonathan BALBAS</b><span>United By Music</span></span>
+    </a>
+    <button class="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+      <li><a href="sae.html" data-i18n="nav.sae">SAÉ</a></li>
+      <li><a href="labo.html" data-i18n="nav.labo">Laboratoire</a></li>
+      <li><a href="projets.html" data-i18n="nav.projets">Projets</a></li>
+      <li><a href="passions.html" data-i18n="nav.passions">Passions</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero container">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="kicker" lang="fr">Étudiant BUT R&amp;T · Entrepreneur</span>
+      <span class="kicker" lang="en">Networks &amp; Telecom student · Entrepreneur</span>
+      <p class="hero-tag">United&nbsp;By&nbsp;Music</p>
+      <h1 lang="fr">La technologie au service de l'Humain.</h1>
+      <h1 lang="en">Technology in service of people.</h1>
+      <p class="lead" lang="fr">Bienvenue dans mon univers. Je suis <strong>Jonathan BALBAS</strong>, fondateur de <strong>Skynium</strong> et étudiant en première année à l'IUT R&amp;T de Luminy. Passionné d'informatique, de réseaux et de scénographie, je rends le numérique accessible — et je rêve en grand, à la manière de l'Eurovision.</p>
+      <p class="lead" lang="en">Welcome to my universe. I'm <strong>Jonathan BALBAS</strong>, founder of <strong>Skynium</strong> and a first-year student at IUT R&amp;T Luminy. Passionate about IT, networks and stage design, I make tech accessible — and I dream big, Eurovision-style.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="cv.html"><span data-i18n="cta.cv">Voir mon CV</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="projets.html"><span data-i18n="cta.projects">Découvrir mes projets</span></a>
+      </div>
+    </div>
+    <div class="hero-mosaic">
+      <canvas id="heart-mosaic"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPLORE GRID ============ -->
+<section class="block container">
+  <div class="sec-head reveal">
+    <span class="kicker" lang="fr">Explorer</span><span class="kicker" lang="en">Explore</span>
+    <h2 lang="fr">Entrez dans <span class="grad-text">mon multivers</span></h2>
+    <h2 lang="en">Step into <span class="grad-text">my multiverse</span></h2>
+    <p class="lead" lang="fr">Cinq dimensions, une même énergie : unir les gens par la technologie et le spectacle.</p>
+    <p class="lead" lang="en">Five dimensions, one energy: uniting people through technology and showmanship.</p>
+  </div>
+
+  <div class="grid cols-3">
+    <a href="cv.html" class="card card-link reveal">
+      <svg class="card-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+      <h3 lang="fr">CV dynamique</h3><h3 lang="en">Dynamic résumé</h3>
+      <p lang="fr">Mon parcours, mes compétences techniques et mes formations, en un coup d'œil.</p>
+      <p lang="en">My journey, technical skills and education, at a glance.</p>
+      <span class="go" lang="fr">Consulter →</span><span class="go" lang="en">Open →</span>
+    </a>
+    <a href="sae.html" class="card card-link reveal">
+      <svg class="card-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 3h8M8 14h8"/></svg>
+      <h3 lang="fr">Mes SAÉ</h3><h3 lang="en">My SAÉ projects</h3>
+      <p lang="fr">CTF réseau, analyse de trafic, caméra IP, capteurs IoT &amp; pipelines de données.</p>
+      <p lang="en">Network CTF, traffic analysis, IP camera, IoT sensors &amp; data pipelines.</p>
+      <span class="go" lang="fr">Découvrir →</span><span class="go" lang="en">Discover →</span>
+    </a>
+    <a href="labo.html" class="card card-link reveal">
+      <svg class="card-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3v6L4 18a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3"/></svg>
+      <h3 lang="fr">Laboratoire perso</h3><h3 lang="en">Personal lab</h3>
+      <p lang="fr">SSO &amp; IAM, domotique HomeAssistant, Skynium Student Hub et infra Raspberry Pi.</p>
+      <p lang="en">SSO &amp; IAM, HomeAssistant automation, Skynium Student Hub and Raspberry Pi infra.</p>
+      <span class="go" lang="fr">Entrer →</span><span class="go" lang="en">Enter →</span>
+    </a>
+    <a href="projets.html" class="card card-link reveal">
+      <svg class="card-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19l4-1 9-9-3-3-9 9-1 4z"/><path d="M14 5l3 3M5 19v0"/><circle cx="18" cy="6" r="0.5"/></svg>
+      <h3 lang="fr">Mes projets</h3><h3 lang="en">My projects</h3>
+      <p lang="fr">Skynium ACADEMY, RuBY, Above The Sky et la future <strong>Skynium Arena</strong>.</p>
+      <p lang="en">Skynium ACADEMY, RuBY, Above The Sky and the future <strong>Skynium Arena</strong>.</p>
+      <span class="go" lang="fr">Explorer →</span><span class="go" lang="en">Explore →</span>
+    </a>
+    <a href="passions.html" class="card card-link reveal">
+      <svg class="card-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg>
+      <h3 lang="fr">Mes passions</h3><h3 lang="en">My passions</h3>
+      <p lang="fr">Skynium, Above The Sky, lyres DMX, serveurs web — et l'Eurovision, évidemment.</p>
+      <p lang="en">Skynium, Above The Sky, DMX moving heads, web servers — and Eurovision, of course.</p>
+      <span class="go" lang="fr">Ressentir →</span><span class="go" lang="en">Feel it →</span>
+    </a>
+    <a href="https://www.linkedin.com/in/skynium/" target="_blank" rel="noopener" class="card card-link reveal">
+      <svg class="card-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>
+      <h3>LinkedIn</h3>
+      <p lang="fr">Suivez mon parcours et connectons-nous professionnellement.</p>
+      <p lang="en">Follow my journey and let's connect professionally.</p>
+      <span class="go" lang="fr">Se connecter →</span><span class="go" lang="en">Connect →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ UNITED BY MUSIC STRIP ============ -->
+<section class="block container">
+  <div class="cta reveal">
+    <span class="kicker center" style="justify-content:center" lang="fr">Ma devise</span>
+    <span class="kicker center" style="justify-content:center" lang="en">My motto</span>
+    <p class="serif" style="font-size:clamp(2rem,5vw,3.4rem);color:#fff;margin:.3em 0">United By Music</p>
+    <p class="lead" style="margin:0 auto" lang="fr">Comme l'Eurovision réunit l'Europe autour d'une scène, je crois en une technologie qui rassemble : accessible, humaine et spectaculaire. C'est l'âme de Skynium.</p>
+    <p class="lead" style="margin:0 auto" lang="en">Just as Eurovision unites Europe around one stage, I believe in technology that brings people together: accessible, human and spectacular. That's the soul of Skynium.</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="footer-placeholder"></footer>
+
+</div>
+
+<script src="assets/footer.js"></script>
+<script src="assets/hearts.js"></script>
+<script src="assets/site.js"></script>
+<script src="public/skynium-data.js"></script>
+</body>
 </html>
