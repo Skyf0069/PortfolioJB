@@ -9,7 +9,7 @@
   const I18N = {
     fr:{
       "nav.home":"Accueil","nav.cv":"CV","nav.sae":"SAÉ","nav.labo":"Laboratoire",
-      "nav.projets":"Projets","nav.passions":"Passions",
+      "nav.projets":"Projets","nav.passions":"Passions","nav.why":"Manifeste",
       "cta.cv":"Voir mon CV","cta.projects":"Découvrir mes projets","cta.contact":"Me contacter",
       "foot.nav":"Navigation","foot.eco":"L'écosystème","foot.connect":"Me suivre",
       "foot.rights":"Tous droits réservés.","foot.made":"Conçu avec",
@@ -17,7 +17,7 @@
     },
     en:{
       "nav.home":"Home","nav.cv":"Résumé","nav.sae":"SAÉ","nav.labo":"Lab",
-      "nav.projets":"Projects","nav.passions":"Passions",
+      "nav.projets":"Projects","nav.passions":"Passions","nav.why":"Manifesto",
       "cta.cv":"View my résumé","cta.projects":"Explore my projects","cta.contact":"Get in touch",
       "foot.nav":"Navigation","foot.eco":"The ecosystem","foot.connect":"Follow me",
       "foot.rights":"All rights reserved.","foot.made":"Crafted with",

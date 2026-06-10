@@ -20,6 +20,7 @@
 '        <li><a href="labo.html" data-i18n="nav.labo">Laboratoire</a></li>',
 '        <li><a href="projets.html" data-i18n="nav.projets">Projets</a></li>',
 '        <li><a href="passions.html" data-i18n="nav.passions">Passions</a></li>',
+'        <li><a href="manifeste.html" data-i18n="nav.why">Manifeste</a></li>',
 '      </ul>',
 '    </div>',
 '    <div>',

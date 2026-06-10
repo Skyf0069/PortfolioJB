@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan BALBAS — Manifeste</title>
+<meta name="description" content="Pourquoi je relie l'Eurovision, l'informatique et mes passions — le manifeste de Jonathan BALBAS. United By Music.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* Manifeste-specific layout */
+  .mani-hero{padding-block:clamp(60px,12vh,140px) clamp(30px,6vh,60px);}
+  .mani-hero h1{font-size:clamp(2.8rem,8vw,6rem);line-height:.98;}
+  .mani-lede{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);color:#fff;line-height:1.3;max-width:20ch;}
+
+  .act{max-width:780px;margin:0 auto;}
+  .act-num{font-family:var(--font-head);font-weight:700;font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:var(--red-bright);display:flex;align-items:center;gap:.8em;margin-bottom:18px;}
+  .act-num::before{content:"";width:30px;height:1px;background:var(--red);}
+  .act h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.5em;}
+  .act p{font-size:clamp(1.05rem,1.7vw,1.22rem);color:var(--muted);line-height:1.7;}
+  .act p strong{color:var(--text);}
+
+  .pullquote{
+    font-family:var(--font-serif);font-style:italic;font-weight:500;
+    font-size:clamp(1.8rem,4.4vw,3.2rem);line-height:1.2;color:#fff;
+    text-align:center;max-width:18ch;margin:clamp(40px,8vh,90px) auto;text-wrap:balance;
+    position:relative;
+  }
+  .pullquote .hl{background:var(--grad-red);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .pullquote::before,.pullquote::after{content:"";display:block;width:46px;height:2px;margin:26px auto;background:linear-gradient(90deg,transparent,var(--red),transparent);}
+
+  /* equation */
+  .equation{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:18px;margin:18px auto 0;max-width:920px;}
+  .eq-card{flex:1 1 200px;min-width:180px;background:linear-gradient(160deg,var(--panel),var(--black-2));border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px 22px;text-align:center;transition:transform .35s var(--ease),border-color .35s;}
+  .eq-card:hover{transform:translateY(-6px);border-color:rgba(255,17,38,.45);}
+  .eq-ic{width:42px;height:42px;margin:0 auto 14px;color:var(--red-bright);}
+  .eq-card h3{font-size:1.15rem;margin-bottom:.35em;}
+  .eq-card p{font-size:.93rem;color:var(--muted);margin:0;line-height:1.55;}
+  .eq-op{display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:2rem;color:var(--red);flex:0 0 auto;}
+  @media(max-width:720px){.equation{flex-direction:column;}.eq-op{transform:rotate(90deg);padding:4px 0;}}
+
+  .creed{text-align:center;max-width:760px;margin:0 auto;}
+  .creed .serif-big{font-family:var(--font-serif);font-style:italic;font-size:clamp(2.2rem,6vw,4rem);color:#fff;line-height:1.05;margin:.2em 0 .5em;}
+</style>
+</head>
+<body data-title-fr="Jonathan BALBAS — Manifeste" data-title-en="Jonathan BALBAS — Manifesto">
+
+<canvas id="heart-field"></canvas>
+<div class="page-wrap">
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Accueil">
+      <svg class="heart-mark" viewBox="0 0 24 24" fill="currentColor" style="color:var(--red)"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg>
+      <span class="brand-txt"><b>Jonathan BALBAS</b><span>United By Music</span></span>
+    </a>
+    <button class="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+      <li><a href="sae.html" data-i18n="nav.sae">SAÉ</a></li>
+      <li><a href="labo.html" data-i18n="nav.labo">Laboratoire</a></li>
+      <li><a href="projets.html" data-i18n="nav.projets">Projets</a></li>
+      <li><a href="passions.html" data-i18n="nav.passions">Passions</a></li>
+      <li><a href="manifeste.html" class="active" data-i18n="nav.why">Manifeste</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="mani-hero container">
+  <span class="kicker" lang="fr">Manifeste · Mon pourquoi</span>
+  <span class="kicker" lang="en">Manifesto · My why</span>
+  <h1 lang="fr">Trois passions,<br><span class="grad-text">un même battement.</span></h1>
+  <h1 lang="en">Three passions,<br><span class="grad-text">one heartbeat.</span></h1>
+  <p class="mani-lede" style="margin-top:1em" lang="fr">La musique, l'Eurovision et l'informatique ne forment pas trois univers distincts. Ce sont, pour moi, les trois battements d'un même cœur.</p>
+  <p class="mani-lede" style="margin-top:1em" lang="en">Music, Eurovision and computing are not three separate worlds. To me, they are three beats of one and the same heart.</p>
+</section>
+
+<!-- ACT 1 — MUSIC -->
+<section class="block container">
+  <div class="act reveal">
+    <div class="act-num"><span lang="fr">Acte I — La musique</span><span lang="en">Act I — Music</span></div>
+    <h2 lang="fr">La musique me fait <span class="grad-text">vibrer</span></h2>
+    <h2 lang="en">Music brings me <span class="grad-text">to life</span></h2>
+    <p lang="fr">La musique m'accompagne <strong>en permanence</strong> : au réveil, au travail, sur la route, jusqu'au soir. Elle constitue la trame sonore de mon quotidien, un fil continu qui rythme chacune de mes journées.</p>
+    <p lang="en">Music accompanies me <strong>constantly</strong>: waking up, working, on the road, late into the evening. It forms the soundtrack of my daily life — a continuous thread that paces each of my days.</p>
+    <p lang="fr">Ce qui me fascine, c'est sa puissance émotionnelle. La musique a la capacité rare de <strong>transformer une journée</strong>, de susciter une émotion sincère et de rassembler des milliers de personnes dans un même élan. C'est cette force que je cherche à comprendre et à prolonger.</p>
+    <p lang="en">What fascinates me is its emotional power. Music has the rare ability to <strong>transform a day</strong>, to stir genuine emotion and to bring thousands of people together in a single momentum. It is that force I seek to understand and to carry further.</p>
+  </div>
+</section>
+
+<div class="container"><p class="pullquote reveal" lang="fr">La musique ne se contente pas de m'accompagner — <span class="hl">elle me porte.</span></p><p class="pullquote reveal" lang="en">Music does more than accompany me — <span class="hl">it carries me.</span></p></div>
+
+<!-- ACT 2 — EUROVISION -->
+<section class="block container">
+  <div class="act reveal">
+    <div class="act-num"><span lang="fr">Acte II — L'Eurovision</span><span lang="en">Act II — Eurovision</span></div>
+    <h2 lang="fr">L'émotion live, portée à son <span class="grad-text">sommet</span></h2>
+    <h2 lang="en">Live emotion, raised to its <span class="grad-text">summit</span></h2>
+    <p lang="fr">L'Eurovision incarne cette émotion musicale à sa plus haute intensité : la <strong>ferveur d'un public en direct</strong> conjuguée à une <strong>mise en lumière spectaculaire</strong>. La rencontre de la technique et de l'émotion y atteint un niveau qui me captive profondément.</p>
+    <p lang="en">Eurovision embodies that musical emotion at its highest intensity: the <strong>fervour of a live audience</strong> combined with <strong>spectacular stage lighting</strong>. There, the meeting of technique and emotion reaches a level that captivates me deeply.</p>
+    <p lang="fr">Une scène, des milliers de personnes réunies, la lumière qui souligne chaque note : c'est la <strong>passion qui me guide</strong>, celle que je souhaite porter au plus haut. Elle est à l'origine d'<strong>Above The Sky</strong> et inspire le projet de la future <strong>Skynium Arena</strong>.</p>
+    <p lang="en">One stage, thousands of people gathered, light underscoring every note: this is the <strong>passion that guides me</strong>, the one I intend to take as far as possible. It gave rise to <strong>Above The Sky</strong> and inspires the future <strong>Skynium Arena</strong> project.</p>
+  </div>
+</section>
+
+<div class="container"><p class="pullquote reveal" lang="fr">Là où l'émotion, le public et la lumière <span class="hl">ne font plus qu'un.</span></p><p class="pullquote reveal" lang="en">Where emotion, audience and light <span class="hl">become one.</span></p></div>
+
+<!-- ACT 3 — TECH -->
+<section class="block container">
+  <div class="act reveal">
+    <div class="act-num"><span lang="fr">Acte III — L'informatique</span><span lang="en">Act III — Computing</span></div>
+    <h2 lang="fr">L'informatique, la <span class="grad-text">clé</span> de tout</h2>
+    <h2 lang="en">Computing, the <span class="grad-text">key</span> to it all</h2>
+    <p lang="fr">Voici le fil conducteur : pour moi, <strong>l'informatique est la clé de la musique</strong>. C'est la technologie qui rend tout cela possible — le streaming qui m'accompagne au quotidien, les éclairages DMX d'un spectacle, les dispositifs scéniques de l'Eurovision, la diffusion qui réunit un continent entier.</p>
+    <p lang="en">Here is the common thread: to me, <strong>computing is the key to music</strong>. Technology is what makes all of it possible — the streaming that accompanies me daily, the DMX lighting of a show, Eurovision's stage systems, the broadcast that brings an entire continent together.</p>
+    <p lang="fr">C'est la raison pour laquelle je poursuis un objectif clair : <strong>rendre la technologie accessible à tous</strong>, tout en cultivant mon engagement pour l'événementiel, l'informatique et l'accompagnement des personnes. Rendre la technologie accessible, c'est rendre l'émotion accessible.</p>
+    <p lang="en">This is why I pursue one clear goal: <strong>making technology accessible to everyone</strong>, while nurturing my commitment to events, computing and supporting people. Making technology accessible means making emotion accessible.</p>
+  </div>
+</section>
+
+<!-- EQUATION -->
+<section class="block container">
+  <div class="sec-head center reveal" style="margin-bottom:36px">
+    <span class="kicker" style="justify-content:center" lang="fr">L'équation</span>
+    <span class="kicker" style="justify-content:center" lang="en">The equation</span>
+    <h2 lang="fr">Comment tout <span class="grad-text">s'assemble</span></h2>
+    <h2 lang="en">How it all <span class="grad-text">connects</span></h2>
+  </div>
+  <div class="equation reveal">
+    <div class="eq-card">
+      <svg class="eq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <h3 lang="fr">La musique</h3><h3 lang="en">Music</h3>
+      <p lang="fr">L'émotion, au quotidien.</p><p lang="en">Emotion, every day.</p>
+    </div>
+    <div class="eq-op">+</div>
+    <div class="eq-card">
+      <svg class="eq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v2M4.2 7l1.4 1.4M19.8 7l-1.4 1.4M3 14h3M18 14h3"/><path d="M7 14a5 5 0 0 1 10 0v1a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3z"/><path d="M9 21h6"/></svg>
+      <h3 lang="fr">L'Eurovision</h3><h3 lang="en">Eurovision</h3>
+      <p lang="fr">Le direct, le public, la lumière.</p><p lang="en">The live, the audience, the light.</p>
+    </div>
+    <div class="eq-op">×</div>
+    <div class="eq-card">
+      <svg class="eq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <h3 lang="fr">L'informatique</h3><h3 lang="en">Computing</h3>
+      <p lang="fr">La clé qui rend tout possible.</p><p lang="en">The key that makes it possible.</p>
+    </div>
+    <div class="eq-op">=</div>
+    <div class="eq-card" style="border-color:rgba(255,17,38,.5);box-shadow:var(--shadow-red)">
+      <svg class="eq-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg>
+      <h3 class="serif" style="font-size:1.3rem">United By Music</h3>
+      <p lang="fr">Ma raison de bâtir.</p><p lang="en">My reason to build.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREED / CTA -->
+<section class="block container">
+  <div class="cta reveal">
+    <div class="creed">
+      <span class="kicker" style="justify-content:center" lang="fr">Ma promesse</span>
+      <span class="kicker" style="justify-content:center" lang="en">My promise</span>
+      <p class="serif-big">United By Music</p>
+      <p class="lead" style="margin:0 auto 1.6em" lang="fr">Je continuerai à rendre la technologie accessible à tous, à concevoir des événements qui rassemblent et à accompagner ceux qui en ont besoin — car derrière chaque ligne de code se trouve une émotion à partager.</p>
+      <p class="lead" style="margin:0 auto 1.6em" lang="en">I will continue to make technology accessible to all, to design events that bring people together, and to support those who need it — because behind every line of code lies an emotion to be shared.</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a class="btn btn-primary" href="passions.html"><span data-i18n="nav.passions">Passions</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="projets.html"><span data-i18n="cta.projects">Découvrir mes projets</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" id="footer-placeholder"></footer>
+</div>
+
+<script src="assets/footer.js"></script>
+<script src="assets/hearts.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/skynium-data.js"></script>
+</body>
+</html>
