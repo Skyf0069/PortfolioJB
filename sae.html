@@ -43,6 +43,29 @@
   .eco-txt span{font-size:.78rem;color:var(--muted);}
   .eco-go{margin-left:auto;color:#5ef0c0;font-size:1.1rem;flex:none;}
 
+  /* --- Skynium HUBJ - Projects section (couleurs HUBJ) --- */
+  .hubjp{--hp-primary:#0171BA;--hp-secondary:#22BCEA;--hp-tertiary:#FBBA03;--hp-quaternary:#073245;
+    margin-top:48px;border:1px solid rgba(34,188,234,.28);border-radius:var(--radius-lg);
+    background:radial-gradient(120% 130% at 12% 0%,rgba(1,113,186,.22),transparent 55%),linear-gradient(160deg,var(--hp-quaternary),var(--black-2));
+    padding:clamp(28px,4vw,44px);overflow:hidden;}
+  .hubjp-head{max-width:640px;}
+  .hubjp-badge{display:inline-flex;align-items:center;gap:.55em;font-family:var(--font-head);font-weight:600;font-size:.82rem;
+    letter-spacing:.04em;padding:7px 14px;border-radius:999px;border:1px solid rgba(251,186,3,.5);color:var(--hp-tertiary);
+    background:rgba(251,186,3,.08);margin-bottom:18px;}
+  .hubjp-badge svg{width:16px;height:16px;}
+  .hubjp-head h3{font-size:clamp(1.3rem,2.4vw,1.8rem);margin-bottom:.4em;}
+  .hubjp-head p{font-size:.98rem;margin-bottom:0;}
+  .hubjp-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:26px;}
+  .hubjp-card{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;
+    background:rgba(7,50,69,.55);border:1px solid rgba(34,188,234,.32);transition:transform .3s var(--ease),border-color .3s,background .3s;}
+  .hubjp-card:hover{transform:translateY(-4px);border-color:rgba(34,188,234,.65);background:rgba(34,188,234,.08);}
+  .hubjp-ic{width:40px;height:40px;flex:none;display:grid;place-items:center;border-radius:11px;background:rgba(34,188,234,.14);color:var(--hp-secondary);}
+  .hubjp-ic svg{width:21px;height:21px;}
+  .hubjp-txt{display:flex;flex-direction:column;line-height:1.3;min-width:0;}
+  .hubjp-txt b{font-family:var(--font-head);font-size:1rem;color:#fff;}
+  .hubjp-txt span{font-size:.78rem;color:var(--muted);}
+  .hubjp-go{margin-left:auto;color:var(--hp-tertiary);font-size:1.1rem;flex:none;}
+
   /* --- Team Miis assis sur les blocs SAÉ --- */
   .sae-grid{margin-top:160px;}
   .sae.mii-card{overflow:visible;}
@@ -266,11 +289,37 @@
         <span class="pin pin-bl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg></span>
         <span class="pin pin-br"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 1.8 4.6 5.2 4.1 7.5 3.8 9.6 5 12 7.4 14.4 5 16.5 3.8 18.8 4.1c3.4.5 4.9 3.9 3.2 7.3C19.5 16.1 12 21 12 21z"/></svg></span>
         <img src="assets/img/team/all3.jpg" alt="Team HUBJ — Hélina, Unsal, Bédis &amp; Jonathan" loading="lazy">
-        <figcaption lang="fr">United par l'amitié ♥</figcaption>
-        <figcaption lang="en">United By Friendship ♥</figcaption>
+        <figcaption lang="fr">United By Music — et par l'amitié ♥</figcaption>
+        <figcaption lang="en">United By Music — and by friendship ♥</figcaption>
       </figure>
     </div>
   </section>
+
+  <!-- SKYNIUM HUBJ - PROJECTS -->
+  <div class="hubjp reveal">
+    <div class="hubjp-head">
+      <span class="hubjp-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7l8-4 8 4-8 4-8-4z"/><path d="M4 7v6l8 4 8-4V7"/><path d="M12 11v6"/></svg>
+        Skynium HUBJ - Projects
+      </span>
+      <h3 lang="fr">Nos projets de groupe HUBJ, en détail</h3>
+      <h3 lang="en">Our HUBJ team projects, in detail</h3>
+      <p lang="fr">Les projets menés en équipe <strong>HUBJ</strong> sont documentés en profondeur sur <strong>Skynium HUBJ - Projects</strong>. Retrouvez-y le détail technique complet&nbsp;:</p>
+      <p lang="en">The projects carried out by <strong>team HUBJ</strong> are documented in depth on <strong>Skynium HUBJ - Projects</strong>. Find the full technical detail there:</p>
+    </div>
+    <div class="hubjp-links">
+      <a class="hubjp-card" href="https://projects.hubj.academy.skynium.fr/sonde-meteo.html" target="_blank" rel="noopener">
+        <span class="hubjp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v2M5 12H3m18 0h-2M7 7L5.5 5.5M17 7l1.5-1.5"/><circle cx="12" cy="13" r="4"/><path d="M12 17v4"/></svg></span>
+        <span class="hubjp-txt"><b>Sonde météo</b><span lang="fr">SAÉ 2.04 · Chaîne IoT &amp; capteurs</span><span lang="en">SAÉ 2.04 · IoT pipeline &amp; sensors</span></span>
+        <span class="hubjp-go">↗</span>
+      </a>
+      <a class="hubjp-card" href="https://projects.hubj.academy.skynium.fr/naturalink.html" target="_blank" rel="noopener">
+        <span class="hubjp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
+        <span class="hubjp-txt"><b>NaturaLink</b><span lang="fr">SAÉ 1.03 · Monitoring de la faune</span><span lang="en">SAÉ 1.03 · Wildlife monitoring</span></span>
+        <span class="hubjp-go">↗</span>
+      </a>
+    </div>
+  </div>
 
   <!-- SKYNIUM ECOGREEN -->
   <div class="ecogreen reveal">
@@ -279,22 +328,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
         Skynium ECOGREEN
       </span>
-      <h3 lang="fr">Mes projets de groupe, publiés en détail</h3>
-      <h3 lang="en">My team projects, published in detail</h3>
-      <p lang="fr">Une partie de mes SAÉ menées en équipe sont documentées plus en profondeur sur <strong>Skynium ECOGREEN</strong>, le pôle numérique responsable de Skynium. Retrouvez-y le détail technique complet&nbsp;:</p>
-      <p lang="en">Some of my team-based SAÉ are documented in greater depth on <strong>Skynium ECOGREEN</strong>, Skynium's responsible-tech division. Find the full technical detail there:</p>
+      <h3 lang="fr">Mon projet à impact, publié en détail</h3>
+      <h3 lang="en">My impact project, published in detail</h3>
+      <p lang="fr">Mon projet à dimension responsable est documenté en profondeur sur <strong>Skynium ECOGREEN</strong>, le pôle numérique responsable de Skynium. Retrouvez-y le détail complet&nbsp;:</p>
+      <p lang="en">My responsible-impact project is documented in depth on <strong>Skynium ECOGREEN</strong>, Skynium's responsible-tech division. Find the full detail there:</p>
     </div>
     <div class="eco-links">
-      <a class="eco-card" href="https://ecogreen.skynium.fr/ressources/sonde-meteo.html" target="_blank" rel="noopener">
-        <span class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v2M5 12H3m18 0h-2M7 7L5.5 5.5M17 7l1.5-1.5"/><circle cx="12" cy="13" r="4"/><path d="M12 17v4"/></svg></span>
-        <span class="eco-txt"><b>Sonde météo</b><span lang="fr">SAÉ 2.04 · Chaîne IoT &amp; capteurs</span><span lang="en">SAÉ 2.04 · IoT pipeline &amp; sensors</span></span>
-        <span class="eco-go">↗</span>
-      </a>
-      <a class="eco-card" href="https://ecogreen.skynium.fr/ressources/naturalink.html" target="_blank" rel="noopener">
-        <span class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
-        <span class="eco-txt"><b>NaturaLink</b><span lang="fr">SAÉ 1.03 · Monitoring de la faune</span><span lang="en">SAÉ 1.03 · Wildlife monitoring</span></span>
-        <span class="eco-go">↗</span>
-      </a>
       <a class="eco-card" href="https://ecogreen.skynium.fr/ressources/localfood.html" target="_blank" rel="noopener">
         <span class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2M5 2v20M16 2c-2 0-3 2-3 5s1 5 3 5 3-2 3-5-1-5-3-5zM16 12v10"/></svg></span>
         <span class="eco-txt"><b>LocalFood</b><span lang="fr">ODD 2 · Faim Zéro &amp; circuits courts</span><span lang="en">SDG 2 · Zero Hunger &amp; local supply</span></span>
